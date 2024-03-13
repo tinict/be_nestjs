@@ -10,6 +10,9 @@ import { redisStore } from 'cache-manager-redis-store';
 import { CommonModule } from './app/common/common.module';
 import { MediaModule } from './app/media/media.module';
 import { RecruitingModule } from './app/recruiting/recruiting.module';
+import { IdentityModule } from './app/identity/identity.module';
+import { UserEntity } from './app/recruiting/entities';
+import { IdeUserEntity, OrganizationEntity, WorkspaceEntity } from './app/identity/entities';
 
 @Module({
   imports: [
@@ -21,8 +24,9 @@ import { RecruitingModule } from './app/recruiting/recruiting.module';
       password: 'root',
       database: 'gce_dev',
       entities: [
-        // OrganizationEntity,
-        // UserEntity,
+        IdeUserEntity,
+        OrganizationEntity,
+        UserEntity,
         // AwardEntity,
         // AlbumEntity,
         // ChapterEntity,
@@ -57,7 +61,7 @@ import { RecruitingModule } from './app/recruiting/recruiting.module';
         // ReportResourceEntity,
         // OrganizationChapterEntity,
         // OrganizationUserEntity,
-        // WorkspaceEntity,
+        WorkspaceEntity,
         // PositionEntity,
         // IAMGroupEntity,
         // IAMGroupUserEntity,
@@ -177,6 +181,7 @@ import { RecruitingModule } from './app/recruiting/recruiting.module';
     }),
     MediaModule,
     CommonModule,
+    IdentityModule,
     RecruitingModule,
     ThrottlerModule.forRoot([
       {
