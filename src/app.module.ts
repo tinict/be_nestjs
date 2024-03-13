@@ -11,8 +11,9 @@ import { CommonModule } from './app/common/common.module';
 import { MediaModule } from './app/media/media.module';
 import { RecruitingModule } from './app/recruiting/recruiting.module';
 import { IdentityModule } from './app/identity/identity.module';
-import { UserEntity } from './app/recruiting/entities';
+import { CampaignCandidateEntity, UserEntity } from './app/recruiting/entities';
 import { IdeUserEntity, OrganizationEntity, WorkspaceEntity } from './app/identity/entities';
+import { CustomFieldEntity, CustomFieldTypeEntity, CustomFieldValueEntity, ResourceCustomFieldEntity, ResourceCustomFieldValueEntity } from './app/common/entities';
 
 @Module({
   imports: [
@@ -92,12 +93,12 @@ import { IdeUserEntity, OrganizationEntity, WorkspaceEntity } from './app/identi
         // ProductEntity,
         // DailyEntity,
         // ProductSummaryEntity,
-        // //CommonModule
-        // CustomFieldEntity,
-        // CustomFieldTypeEntity,
-        // CustomFieldValueEntity,
-        // ResourceCustomFieldEntity,
-        // ResourceCustomFieldValueEntity,
+        //CommonModule
+        CustomFieldEntity,
+        CustomFieldTypeEntity,
+        CustomFieldValueEntity,
+        ResourceCustomFieldEntity,
+        ResourceCustomFieldValueEntity,
         // ActivityEntity,
         // RatingEntity,
         // UserSummaryEntity,
@@ -164,6 +165,8 @@ import { IdeUserEntity, OrganizationEntity, WorkspaceEntity } from './app/identi
         // CandidateEntity,
         //Candidate
         // CandidateLoginEntity,
+
+        CampaignCandidateEntity,
       ],
       synchronize: true,
       logging: false,

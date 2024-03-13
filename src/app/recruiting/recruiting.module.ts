@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthenticationMiddleware } from '../../middlewares/auth.middleware';
 import { IdeUserEntity } from '../identity/entities';
 import { UserEntity } from '../recruiting/entities';
+import { CampaignCandidateController } from './controllers';
 import {
   CampaignCandidateEntity,
   CampaignChannelEntity,
@@ -30,6 +31,7 @@ import {
   ProposalPositionConditionSkillEntity,
   SkillEntity,
 } from './entities';
+import { CampaignCandidateService } from './services';
 
 @Module({
   imports: [
@@ -63,11 +65,17 @@ import {
       SkillEntity
     ]),
   ],
-  controllers: [],
-  providers: [],
+  controllers: [
+    CampaignCandidateController
+  ],
+  providers: [
+    CampaignCandidateService
+  ],
 })
 export class RecruitingModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
-    consumer.apply(AuthenticationMiddleware).forRoutes();
+    consumer.apply(AuthenticationMiddleware).forRoutes(
+      CampaignCandidateController
+    );
   }
 }
