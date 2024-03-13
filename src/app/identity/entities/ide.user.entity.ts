@@ -154,7 +154,7 @@ export class IdeUserEntity extends BaseEntity {
   // @OneToMany(() => UserRole, userRole => userRole.User)
   // UserRoles!: UserRole[];  
 
-  @Column({ name: 'is_public_phone', type: 'tinyint' })
+  @Column({ name: 'is_public_phone', type: 'tinyint', default: 0 })
   public IsPublicPhone: number;
  
 
