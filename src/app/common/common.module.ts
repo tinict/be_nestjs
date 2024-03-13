@@ -23,7 +23,7 @@ import {
   ResourceCustomFieldService,
   ResourceCustomFieldValueService,
 } from './services';
-import { UserEntity } from '../recruiting/entities';
+import { IdeUserEntity } from '../identity/entities';
 
 @Module({
   imports: [
@@ -33,7 +33,7 @@ import { UserEntity } from '../recruiting/entities';
       CustomFieldValueEntity,
       ResourceCustomFieldEntity,
       ResourceCustomFieldValueEntity,
-      UserEntity,
+      IdeUserEntity,
     ]),
   ],
   controllers: [
