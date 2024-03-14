@@ -11,24 +11,6 @@ import { CommonModule } from './app/modules/common/common.module';
 import { MediaModule } from './app/modules/media/media.module';
 import { RecruitingModule } from './app/modules/recruiting/recruiting.module';
 import { IdentityModule } from './app/modules/identity/identity.module';
-import {
-  CampaignCandidateEntity,
-  RecUserEntity,
-} from './app/modules/recruiting/entities';
-import {
-  IdeUserEntity,
-  OrganizationEntity,
-  WorkspaceEntity,
-} from './app/modules/identity/entities';
-import {
-  CommonUserEntity,
-  CustomFieldEntity,
-  CustomFieldTypeEntity,
-  CustomFieldValueEntity,
-  ResourceCustomFieldEntity,
-  ResourceCustomFieldValueEntity,
-} from './app/modules/common/entities';
-import { MediaUserEntity } from './app/modules/media/entities';
 
 @Module({
   imports: [
@@ -39,20 +21,7 @@ import { MediaUserEntity } from './app/modules/media/entities';
       username: 'root',
       password: 'root',
       database: 'gce_dev',
-      entities: [
-        CommonUserEntity,
-        MediaUserEntity,
-        IdeUserEntity,
-        OrganizationEntity,
-        RecUserEntity,
-        WorkspaceEntity,
-        CustomFieldEntity,
-        CustomFieldTypeEntity,
-        CustomFieldValueEntity,
-        ResourceCustomFieldEntity,
-        ResourceCustomFieldValueEntity,
-        CampaignCandidateEntity,
-      ],
+      entities: [__dirname + '../**/*.entity{.ts,.js}'],
       synchronize: true,
       logging: false,
     }),
