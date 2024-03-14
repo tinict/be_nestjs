@@ -11,7 +11,7 @@ import { AWSStorageService } from '../storage/aws-storage.service';
 import { FileUploadDto } from './file-upload-dto';
 import { diskStorage } from 'multer';
 import { extname } from 'path';
-import { AuthenticationMiddleware } from '../recruiting/middlewares';
+import { AuthenticationMiddleware } from './middlewares';
 
 @ApiTags('Media')
 @ApiBearerAuth()

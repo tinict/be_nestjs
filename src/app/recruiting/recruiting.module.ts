@@ -1,7 +1,7 @@
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthenticationMiddleware } from './middlewares/auth.middleware';
-import { UserEntity } from '../recruiting/entities';
+import { RecUserEntity } from '../recruiting/entities';
 import { CampaignCandidateController } from './controllers';
 import {
   CampaignCandidateEntity,
@@ -35,7 +35,7 @@ import { CampaignCandidateService } from './services';
 @Module({
   imports: [
     TypeOrmModule.forFeature([
-      UserEntity,
+      RecUserEntity,
       CampaignCandidateEntity,
       CampaignChannelEntity,
       CampaignContactEntity,
