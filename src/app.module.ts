@@ -7,24 +7,25 @@ import { AppService } from './app.service';
 import { CacheModule } from '@nestjs/cache-manager';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { redisStore } from 'cache-manager-redis-store';
-import { CommonModule } from './app/modules/common/common.module';
-import { MediaModule } from './app/modules/media/media.module';
-import { RecruitingModule } from './app/modules/recruiting/recruiting.module';
-import { IdentityModule } from './app/modules/identity/identity.module';
+import { CommonModule } from './app/common/common.module';
+import { MediaModule } from './app/media/media.module';
+import { RecruitingModule } from './app/recruiting/recruiting.module';
+import { IdentityModule } from './app/identity/identity.module';
+import { MysqlModule } from './app/database/mysql';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: '127.0.0.1',
-      port: 3306,
-      username: 'root',
-      password: 'root',
-      database: 'gce_dev',
-      entities: [__dirname + '../**/*.entity{.ts,.js}'],
-      synchronize: true,
-      logging: false,
-    }),
+    // TypeOrmModule.forRoot({
+    //   type: 'mysql',
+    //   host: '127.0.0.1',
+    //   port: 3306,
+    //   username: 'root',
+    //   password: 'root',
+    //   database: 'gce_dev',
+    //   entities: [__dirname + '../**/*.entity{.ts,.js}'],
+    //   synchronize: true,
+    //   logging: false,
+    // }),
 
     CacheModule.register({
       useFactory: async () =>
@@ -36,6 +37,7 @@ import { IdentityModule } from './app/modules/identity/identity.module';
           },
         }),
     }),
+    MysqlModule,
     IdentityModule,
     RecruitingModule,
     MediaModule,
