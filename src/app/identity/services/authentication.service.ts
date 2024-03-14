@@ -7,7 +7,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 
 import * as MSG from '../../../constants/msg';
-import AuthenticationCrypto from '../../../middlewares/authentication-crypto';
+import AuthenticationCrypto from '../../recruiting/middlewares/authentication-crypto';
 
 import { ResponseHelper } from '../../../helpers/response.helper';
 import { IsNull, Repository } from 'typeorm';

@@ -1,14 +1,16 @@
 import { Module, NestModule, MiddlewareConsumer } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { AuthenticationMiddleware } from "src/middlewares";
 import { MailerService } from "../mailer/mailer.service";
+import { UserEntity } from "../recruiting/entities";
 import { AuthenticationController, AuthorizeController, OrganizationController, UserController } from "./controllers";
 import { IdeUserEntity, OrganizationEntity, WorkspaceEntity } from "./entities";
+import { AuthenticationMiddleware } from "./middlewares/auth.middleware";
 import { AuthenticationService, OrganizationService, UserService } from "./services";
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([
+      UserEntity,
       IdeUserEntity,
       OrganizationEntity,
       WorkspaceEntity
@@ -24,7 +26,8 @@ import { AuthenticationService, OrganizationService, UserService } from "./servi
     AuthenticationService,
     OrganizationService,
     UserService,
-    MailerService
+    MailerService,
+    AuthenticationMiddleware
   ],
 })
 export class IdentityModule implements NestModule {

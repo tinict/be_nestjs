@@ -17,7 +17,7 @@ import {
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
 import { ResponseHelper } from 'src/helpers/response.helper';
-import { AuthenticationMiddleware } from '../../../middlewares';
+import { AuthenticationMiddleware } from '../../recruiting/middlewares';
 import { JoiValidationPipe } from 'src/validation';
 
 import { OrganizationService } from '../services';

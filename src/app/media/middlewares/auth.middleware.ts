@@ -1,21 +1,21 @@
 import * as JWT from 'jsonwebtoken';
 
-import * as MSG from '../constants/msg';
+import * as MSG from '../../../constants/msg';
 
 import { NestMiddleware, Injectable } from '@nestjs/common';
-import { ResponseHelper } from '../helpers/response.helper';
+import { ResponseHelper } from '../../../helpers/response.helper';
 import AuthenticationCrypto from './authentication-crypto';
 
 import { Request } from 'express';
 import { IsNull, Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { IdeUserEntity } from 'src/app/identity/entities';
+import { MediaUserEntity } from '../entities';
 
 @Injectable()
 export class AuthenticationMiddleware implements NestMiddleware {
   constructor(
-    @InjectRepository(IdeUserEntity)
-    private userRepository: Repository<IdeUserEntity>,
+    @InjectRepository(MediaUserEntity)
+    private userRepository: Repository<MediaUserEntity>,
   ) {}
 
   async use(req: Request, _res: any, next: () => void) {
