@@ -53,18 +53,18 @@ export class AuthenticationMiddleware implements NestMiddleware {
       );
     }
 
-    const user = await this.userRepository.findOne({
-      where: {
-        Id: payload.user_id,
-        DeleteDate: IsNull(),
-      },
-    });
+    // const user = await this.userRepository.findOne({
+    //   where: {
+    //     Id: payload.user_id,
+    //     DeleteDate: IsNull(),
+    //   },
+    // });
 
-    if (!user) {
-      throw ResponseHelper.HttpException(
-        ResponseHelper.UnAuthorized(MSG.MSG_AUTH_FAILED),
-      );
-    }
+    // if (!user) {
+    //   throw ResponseHelper.HttpException(
+    //     ResponseHelper.UnAuthorized(MSG.MSG_AUTH_FAILED),
+    //   );
+    // }
     // if (payload.exp > new Date().getTime()) {
     //   throw ResponseHelper.HttpException(
     //     ResponseHelper.UnAuthorized(MSG.MSG_AUTH_HAS_EXPIRED),
@@ -73,7 +73,7 @@ export class AuthenticationMiddleware implements NestMiddleware {
 
     req.body.credentials = {
       UserId: payload?.user_id,
-      User: user,
+      // User: user,
       OrganizationId:
         req.headers['x-organization-id'] || payload?.organization_id,
     };
