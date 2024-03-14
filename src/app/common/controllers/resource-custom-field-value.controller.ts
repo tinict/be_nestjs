@@ -17,7 +17,6 @@ import {
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
 import { ResponseHelper } from '../../../helpers';
-import { AuthenticationMiddleware } from '../../recruiting/middlewares/auth.middleware';
 import { JoiValidationPipe } from '../../../validation';
 
 import {
@@ -34,6 +33,7 @@ import {
   ResourceCustomFieldValueUpdateModel,
 } from '../models';
 import { ResourceCustomFieldValueService } from '../services';
+import { AuthenticationMiddleware } from '../middlewares';
 
 @ApiTags('COMMON')
 @Controller('v1/resource-custom-field-values')

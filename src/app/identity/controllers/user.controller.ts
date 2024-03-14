@@ -18,7 +18,6 @@ import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
 import { ResponseHelper } from 'src/helpers/response.helper';
 import { JoiValidationPipe } from 'src/validation';
-import { AuthenticationMiddleware } from 'src/app/recruiting/middlewares';
 
 import { UserService } from '../services';
 import {
@@ -38,6 +37,7 @@ import {
   UserUpdatePasswordModel,
   UserUpdatePhoneModel,
 } from '../models';
+import { AuthenticationMiddleware } from '../middlewares';
 
 @ApiTags('Identity')
 @Controller('v1/users')

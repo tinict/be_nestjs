@@ -24,12 +24,10 @@ import {
   ResourceCustomFieldValueService,
 } from './services';
 import { AuthenticationMiddleware } from './middlewares';
-import { UserEntity } from '../recruiting/entities';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([
-      UserEntity, 
       CustomFieldEntity,
       CustomFieldTypeEntity,
       CustomFieldValueEntity,

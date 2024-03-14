@@ -14,8 +14,6 @@ import { CommonUserEntity } from '../entities';
 @Injectable()
 export class AuthenticationMiddleware implements NestMiddleware {
   constructor(
-    @InjectRepository(CommonUserEntity)
-    private commonUserRepository: Repository<CommonUserEntity>,
   ) {}
 
   async use(req: Request, _res: any, next: () => void) {
@@ -53,18 +51,7 @@ export class AuthenticationMiddleware implements NestMiddleware {
       );
     }
 
-    const user = await this.commonUserRepository.findOne({
-      where: {
-        Id: payload.user_id,
-        DeleteDate: IsNull(),
-      },
-    });
-
-    if (!user) {
-      throw ResponseHelper.HttpException(
-        ResponseHelper.UnAuthorized(MSG.MSG_AUTH_FAILED),
-      );
-    }
+    
     // if (payload.exp > new Date().getTime()) {
     //   throw ResponseHelper.HttpException(
     //     ResponseHelper.UnAuthorized(MSG.MSG_AUTH_HAS_EXPIRED),
@@ -73,7 +60,6 @@ export class AuthenticationMiddleware implements NestMiddleware {
 
     req.body.credentials = {
       UserId: payload?.user_id,
-      User: user,
       OrganizationId:
         req.headers['x-organization-id'] || payload?.organization_id,
     };

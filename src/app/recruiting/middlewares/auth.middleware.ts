@@ -9,13 +9,13 @@ import AuthenticationCrypto from './authentication-crypto';
 import { Request } from 'express';
 import { IsNull, Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { UserEntity } from '../entities';
+import { RecUserEntity } from '../entities';
 
 @Injectable()
 export class AuthenticationMiddleware implements NestMiddleware {
   constructor(
-    @InjectRepository(UserEntity)
-    private userRepository: Repository<UserEntity>,
+    @InjectRepository(RecUserEntity)
+    private userRepository: Repository<RecUserEntity>,
   ) {}
 
   async use(req: Request, _res: any, next: () => void) {

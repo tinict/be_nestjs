@@ -11,7 +11,7 @@ import { CommonModule } from './app/common/common.module';
 import { MediaModule } from './app/media/media.module';
 import { RecruitingModule } from './app/recruiting/recruiting.module';
 import { IdentityModule } from './app/identity/identity.module';
-import { CampaignCandidateEntity, UserEntity } from './app/recruiting/entities';
+import { CampaignCandidateEntity, RecUserEntity } from './app/recruiting/entities';
 import { IdeUserEntity, OrganizationEntity, WorkspaceEntity } from './app/identity/entities';
 import { CommonUserEntity, CustomFieldEntity, CustomFieldTypeEntity, CustomFieldValueEntity, ResourceCustomFieldEntity, ResourceCustomFieldValueEntity } from './app/common/entities';
 import { MediaUserEntity } from './app/media/entities';
@@ -30,7 +30,7 @@ import { MediaUserEntity } from './app/media/entities';
         MediaUserEntity,
         IdeUserEntity,
         OrganizationEntity,
-        UserEntity,
+        RecUserEntity,
         // AwardEntity,
         // AlbumEntity,
         // ChapterEntity,

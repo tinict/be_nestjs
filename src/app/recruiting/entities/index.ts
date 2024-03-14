@@ -23,4 +23,4 @@ export * from './candidate_qualifications.entity';
 export * from './campaign_candidates.entity';
 export * from './interview_processes.entity';
 export * from './candidate_interview_processes.entity';
-export * from './user.entity';
+export * from './rec.user.entity';

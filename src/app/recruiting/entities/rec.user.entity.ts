@@ -12,7 +12,7 @@ import {
  * ide_user: Identity organization table
  */
 @Entity({ name: 'rec_users' })
-export class UserEntity extends BaseEntity {
+export class RecUserEntity extends BaseEntity {
   //#region Properties
 
   /**
