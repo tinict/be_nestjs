@@ -1,10 +1,10 @@
 import * as JWT from 'jsonwebtoken';
 import { Request } from 'express';
 
-import * as MSG from '../constants/msg';
+import * as MSG from '../../../constants/msg';
 
 import { NestMiddleware, Injectable } from '@nestjs/common';
-import { ResponseHelper } from '../helpers/response.helper';
+import { ResponseHelper } from '../../../helpers/response.helper';
 import AuthenticationCrypto from './authentication-crypto';
 
 @Injectable()

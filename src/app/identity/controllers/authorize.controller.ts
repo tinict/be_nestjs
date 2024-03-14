@@ -10,7 +10,7 @@ import {
 } from '@nestjs/common';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { ResponseHelper } from '../../../helpers/response.helper';
-import { AuthenticationMiddleware } from '../../../middlewares/auth.middleware';
+import { AuthenticationMiddleware } from '../../recruiting/middlewares/auth.middleware';
 import { AuthenticationService } from '../services/authentication.service';
 import { Request } from 'express';
 import { UserMapper } from '../mappers/user.mapper';

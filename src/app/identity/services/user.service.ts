@@ -19,7 +19,7 @@ import {
   UserUpdatePhoneModel,
 } from '../models';
 import { OrganizationService } from './organization.service';
-import AuthenticationCrypto from 'src/middlewares/authentication-crypto';
+import AuthenticationCrypto from 'src/app/recruiting/middlewares/authentication-crypto';
 import { RESOURCE_TYPE } from 'src/constants';
 
 @Injectable()

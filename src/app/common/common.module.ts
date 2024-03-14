@@ -1,8 +1,8 @@
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { AuthenticationMiddleware } from '../../middlewares/auth.middleware';
 import {
+  CommonUserEntity,
   CustomFieldEntity,
   CustomFieldTypeEntity,
   CustomFieldValueEntity,
@@ -23,17 +23,19 @@ import {
   ResourceCustomFieldService,
   ResourceCustomFieldValueService,
 } from './services';
-import { IdeUserEntity } from '../identity/entities';
+import { AuthenticationMiddleware } from './middlewares';
+import { UserEntity } from '../recruiting/entities';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([
+      UserEntity, 
       CustomFieldEntity,
       CustomFieldTypeEntity,
       CustomFieldValueEntity,
       ResourceCustomFieldEntity,
       ResourceCustomFieldValueEntity,
-      IdeUserEntity,
+      CommonUserEntity,
     ]),
   ],
   controllers: [

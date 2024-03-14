@@ -13,7 +13,8 @@ import { RecruitingModule } from './app/recruiting/recruiting.module';
 import { IdentityModule } from './app/identity/identity.module';
 import { CampaignCandidateEntity, UserEntity } from './app/recruiting/entities';
 import { IdeUserEntity, OrganizationEntity, WorkspaceEntity } from './app/identity/entities';
-import { CustomFieldEntity, CustomFieldTypeEntity, CustomFieldValueEntity, ResourceCustomFieldEntity, ResourceCustomFieldValueEntity } from './app/common/entities';
+import { CommonUserEntity, CustomFieldEntity, CustomFieldTypeEntity, CustomFieldValueEntity, ResourceCustomFieldEntity, ResourceCustomFieldValueEntity } from './app/common/entities';
+import { MediaUserEntity } from './app/media/entities';
 
 @Module({
   imports: [
@@ -25,6 +26,8 @@ import { CustomFieldEntity, CustomFieldTypeEntity, CustomFieldValueEntity, Resou
       password: 'root',
       database: 'gce_dev',
       entities: [
+        CommonUserEntity,
+        MediaUserEntity,
         IdeUserEntity,
         OrganizationEntity,
         UserEntity,
@@ -182,10 +185,10 @@ import { CustomFieldEntity, CustomFieldTypeEntity, CustomFieldValueEntity, Resou
           },
         }),
     }),
-    MediaModule,
-    CommonModule,
     IdentityModule,
     RecruitingModule,
+    MediaModule,
+    CommonModule,
     ThrottlerModule.forRoot([
       {
         name: 'short',
