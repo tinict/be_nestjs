@@ -13,7 +13,7 @@ export * from './campaign_contact.entity';
 export * from './channels.entity';
 export * from './campaign_channel.entity';
 export * from './events.entity';
-export * from './campaign_events.entity';
+export * from './campaign_event.entity';
 export * from './candidates.entity';
 export * from './candidate_working_histories.entity';
 export * from './candidate_educations.entity';

@@ -1,5 +1,5 @@
+import { BaseEntity } from 'src/entities/base';
 import { Entity, OneToMany } from 'typeorm';
-import { BaseEntity } from '../../../entities/base';
 import { OrganizationEntity } from './organization.entity';
 
 @Entity({ name: 'ide_workspaces' })

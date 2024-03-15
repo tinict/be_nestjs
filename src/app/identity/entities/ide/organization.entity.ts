@@ -1,4 +1,4 @@
-import { BaseEntity } from '../../../entities/base';
+import { BaseEntity } from 'src/entities/base';
 import {
   Column,
   Entity,
@@ -9,6 +9,7 @@ import {
   JoinTable,
   OneToOne,
 } from 'typeorm';
+import { IAMGroup } from '../iam/iam.group.entity';
 import { WorkspaceEntity } from './workspace.entity';
 
 
@@ -195,5 +196,8 @@ export class OrganizationEntity extends BaseEntity {
     // default: () => 'CURRENT_TIMESTAMP',
   })
   public ActivationDate: string;
+
+  @OneToMany(() => IAMGroup, (entity) => entity.Organization)
+  IAMGroups!: IAMGroup[];
 
 }

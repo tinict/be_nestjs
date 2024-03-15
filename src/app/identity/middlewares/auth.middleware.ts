@@ -8,8 +8,8 @@ import AuthenticationCrypto from './authentication-crypto';
 import { Request } from 'express';
 import { IsNull, Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { IdeUserEntity } from 'src/app/identity/entities';
 import { ResponseHelper } from 'src/helpers';
+import { IdeUserEntity } from '../entities';
 
 @Injectable()
 export class AuthenticationMiddleware implements NestMiddleware {

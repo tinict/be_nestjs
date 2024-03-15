@@ -17,16 +17,15 @@ import { MysqlModule } from './app/database/mysql';
   imports: [
     // TypeOrmModule.forRoot({
     //   type: 'mysql',
-    //   host: '127.0.0.1',
+    //   host: "localhost",
     //   port: 3306,
-    //   username: 'root',
-    //   password: 'root',
+    //   username: "root",
+    //   password: "Tin18082002",
     //   database: 'gce_dev',
     //   entities: [__dirname + '../**/*.entity{.ts,.js}'],
     //   synchronize: true,
     //   logging: false,
     // }),
-
     CacheModule.register({
       useFactory: async () =>
         await redisStore({

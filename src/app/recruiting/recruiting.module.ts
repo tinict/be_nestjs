@@ -2,7 +2,15 @@ import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthenticationMiddleware } from './middlewares/auth.middleware';
 import { RecUserEntity } from './entities';
-import { CampaignCandidateController } from './controllers';
+import {
+  CampaignCandidateController,
+  CampaignChannelController,
+  CampaignController,
+  CampaignEventController,
+  CampaignProposalPositionConditionController,
+  CandidateEducationController,
+  CandidateInterviewProcessController,
+} from './controllers';
 import {
   CampaignCandidateEntity,
   CampaignChannelEntity,
@@ -30,7 +38,15 @@ import {
   ProposalPositionConditionSkillEntity,
   SkillEntity,
 } from './entities';
-import { CampaignCandidateService } from './services';
+import {
+  CampaignCandidateService,
+  CampaignChannelService,
+  CampaignEventService,
+  CampaignProposalPositionConditionService,
+  CampaignService,
+  CandidateEducationService,
+  CandidateInterviewProcessService,
+} from './services';
 
 @Module({
   imports: [
@@ -64,10 +80,22 @@ import { CampaignCandidateService } from './services';
     ]),
   ],
   controllers: [
-    CampaignCandidateController
+    CampaignCandidateController,
+    CampaignChannelController,
+    CampaignEventController,
+    CampaignProposalPositionConditionController,
+    CampaignController,
+    CandidateEducationController,
+    CandidateInterviewProcessController,
   ],
   providers: [
-    CampaignCandidateService
+    CampaignCandidateService,
+    CampaignChannelService,
+    CampaignEventService,
+    CampaignProposalPositionConditionService,
+    CampaignService,
+    CandidateEducationService,
+    CandidateInterviewProcessService,
   ],
 })
 export class RecruitingModule implements NestModule {
