@@ -101,7 +101,13 @@ import {
 export class RecruitingModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer.apply(AuthenticationMiddleware).forRoutes(
-      CampaignCandidateController
+      CampaignCandidateController,
+      CampaignChannelController,
+      CampaignEventController,
+      CampaignProposalPositionConditionController,
+      CampaignController,
+      CandidateEducationController,
+      CandidateInterviewProcessController,
     );
   }
 }
