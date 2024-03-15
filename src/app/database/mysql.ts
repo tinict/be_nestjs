@@ -14,11 +14,11 @@ async function DatabaseOrmModule(): Promise<DynamicModule> {
 
   return TypeOrmModule.forRoot({
     type: 'mysql',
-    host: '127.0.0.1',
-    port: 3306,
-    username: 'root',
-    password: 'root',
-    database: 'gce_dev',
+    host: process.env.RDS_HOST,
+    port: +process.env.RDS_PORT,
+    database: process.env.RDS_NAME,
+    username: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
     // socketPath: `/cloudsql/${process.env.INSTANCE_UNIX_SOCKET}`,
     // replication: {
     //   master: {
