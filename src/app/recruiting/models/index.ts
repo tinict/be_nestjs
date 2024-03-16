@@ -79,3 +79,12 @@ export * from './candidate_qualifications.query.model';
 export * from './candidate_qualifications.create.model';
 export * from './candidate_qualifications.get.model';
 export * from './candidate_qualifications.delete.model';
+
+//Candidate model
+export * from './candidates.bulk.model';
+export * from './candidates.update.model';
+export * from './candidates.query.model';
+export * from './candidates.create.model';
+export * from './candidates.get.model';
+export * from './candidates.delete.model';
+

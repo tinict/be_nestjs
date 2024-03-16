@@ -47,3 +47,8 @@ export * from './candidate_languages.update.schema';
 export * from './candidate_qualifications.bulk.schema';
 export * from './candidate_qualifications.create.schema';
 export * from './candidate_qualifications.update.schema';
+
+//Candidate schema
+export * from './candidates.bulk.schema';
+export * from './candidates.create.schema';
+export * from './candidates.update.schema';
