@@ -70,3 +70,12 @@ export * from './candidate_languages.query.model';
 export * from './candidate_languages.create.model';
 export * from './candidate_languages.get.model';
 export * from './candidate_languages.delete.model';
+
+
+//Candidate qualifications model
+export * from './candidate_qualifications.bulk.model';
+export * from './candidate_qualifications.update.model';
+export * from './candidate_qualifications.query.model';
+export * from './candidate_qualifications.create.model';
+export * from './candidate_qualifications.get.model';
+export * from './candidate_qualifications.delete.model';

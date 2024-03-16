@@ -7,3 +7,4 @@ export * from './candidate_educations.field';
 export * from './candidate_interview_processes.field';
 export * from './candidate_working_histories.field';
 export * from './candidate_languages.field';
+export * from './candidate_qualifications.field';

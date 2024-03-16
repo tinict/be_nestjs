@@ -7,3 +7,4 @@ export * from './candidate_educations.mapper';
 export * from './candidate_interview_processes.mapper';
 export * from './candidate_working_histories.mapper';
 export * from './candidate_languages.mapper';
+export * from './candidate_qualifications.mapper';
