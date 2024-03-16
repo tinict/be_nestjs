@@ -38,7 +38,7 @@ export * from './campaigns.bulk.model';
 export * from './campaigns.get.model';
 export * from './campaigns.delete.model';
 
-//Campaign model
+//Candidate educations model
 export * from './candidate_educations.create.model';
 export * from './candidate_educations.update.model';
 export * from './candidate_educations.query.model';
@@ -53,3 +53,12 @@ export * from './candidate_interview_processes.query.model';
 export * from './candidate_interview_processes.bulk.model';
 export * from './candidate_interview_processes.get.model';
 export * from './candidate_interview_processes.delete.model';
+
+
+//Candidate workinghistories model
+export * from './candidate_working_histories.bulk.model';
+export * from './candidate_working_histories.update.model';
+export * from './candidate_working_histories.query.model';
+export * from './candidate_working_histories.create.model';
+export * from './candidate_working_histories.get.model';
+export * from './candidate_working_histories.delete.model';

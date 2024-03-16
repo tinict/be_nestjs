@@ -5,3 +5,4 @@ export * from './campaign_proposal_position_conditions.field';
 export * from './campaigns.field';
 export * from './candidate_educations.field';
 export * from './candidate_interview_processes.field';
+export * from './candidate_working_histories.field';
