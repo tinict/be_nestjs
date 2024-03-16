@@ -37,3 +37,8 @@ export * from './candidate_interview_processes.update.schema';
 export * from './candidate_working_histories.bulk.schema';
 export * from './candidate_working_histories.create.schema';
 export * from './candidate_working_histories.update.schema';
+
+//Candidate working languages schema
+export * from './candidate_languages.bulk.schema';
+export * from './candidate_languages.create.schema';
+export * from './candidate_languages.update.schema';

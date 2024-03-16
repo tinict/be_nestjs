@@ -62,3 +62,11 @@ export * from './candidate_working_histories.query.model';
 export * from './candidate_working_histories.create.model';
 export * from './candidate_working_histories.get.model';
 export * from './candidate_working_histories.delete.model';
+
+//Candidate languages model
+export * from './candidate_languages.bulk.model';
+export * from './candidate_languages.update.model';
+export * from './candidate_languages.query.model';
+export * from './candidate_languages.create.model';
+export * from './candidate_languages.get.model';
+export * from './candidate_languages.delete.model';

@@ -47,8 +47,10 @@ import {
   CampaignService,
   CandidateEducationService,
   CandidateInterviewProcessService,
+  CandidateLanguageService,
   CandidateWorkingHistoryService,
 } from './services';
+import { CandidateLanguageController } from './controllers/candidate_languages.controller';
 
 @Module({
   imports: [
@@ -90,6 +92,7 @@ import {
     CandidateEducationController,
     CandidateInterviewProcessController,
     CandidateWorkingHistoryController,
+    CandidateLanguageController,
   ],
   providers: [
     CampaignCandidateService,
@@ -100,6 +103,7 @@ import {
     CandidateEducationService,
     CandidateInterviewProcessService,
     CandidateWorkingHistoryService,
+    CandidateLanguageService,
   ],
 })
 export class RecruitingModule implements NestModule {
@@ -113,6 +117,7 @@ export class RecruitingModule implements NestModule {
       CandidateEducationController,
       CandidateInterviewProcessController,
       CandidateWorkingHistoryController,
+      CandidateLanguageController,
     );
   }
 }
