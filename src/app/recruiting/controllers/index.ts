@@ -11,3 +11,4 @@ export * from './candidate_qualifications.controller';
 export * from './candidate_skills.controller';
 export * from './candidates.controller';
 export * from './channels.controller';
+export * from './campaign_contact.controller';

@@ -11,3 +11,4 @@ export * from './candidate_qualifications.service';
 export * from './candidate_skills.service';
 export * from './candidates.service';
 export * from './channels.service';
+export * from './campaign_contact.service';

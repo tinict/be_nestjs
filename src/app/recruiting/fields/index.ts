@@ -11,3 +11,4 @@ export * from './candidate_qualifications.field';
 export * from './candidate_skills.field';
 export * from './candidates.field';
 export * from './channels.field';
+export * from './campaign_contact.field'

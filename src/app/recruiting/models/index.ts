@@ -103,3 +103,11 @@ export * from './Channels.query.model';
 export * from './Channels.create.model';
 export * from './Channels.get.model';
 export * from './Channels.delete.model';
+
+//Campaign contact model
+export * from './campaign_contact.bulk.model ';
+export * from './campaign_contact.update.model';
+export * from './campaign_contact.query.model';
+export * from './campaign_contact.create.model';
+export * from './campaign_contact.get.model';
+export * from './campaign_contact.delete.model';

@@ -5,6 +5,7 @@ import { RecUserEntity } from './entities';
 import {
   CampaignCandidateController,
   CampaignChannelController,
+  CampaignContactController,
   CampaignController,
   CampaignEventController,
   CampaignProposalPositionConditionController,
@@ -47,6 +48,7 @@ import {
 import {
   CampaignCandidateService,
   CampaignChannelService,
+  CampaignContactService,
   CampaignEventService,
   CampaignProposalPositionConditionService,
   CampaignService,
@@ -105,11 +107,14 @@ import {
     CandidateSkillController,
     CandidateController,
     ChannelController,
+    CampaignContactController,
   ],
   providers: [
     CampaignCandidateService,
+    CampaignContactService,
     CampaignChannelService,
     CampaignEventService,
+    ChannelService,
     CampaignProposalPositionConditionService,
     CampaignService,
     CandidateEducationService,
@@ -127,6 +132,7 @@ export class RecruitingModule implements NestModule {
     consumer.apply(AuthenticationMiddleware).forRoutes(
       CampaignCandidateController,
       CampaignChannelController,
+      CampaignContactController,
       CampaignEventController,
       CampaignProposalPositionConditionController,
       CampaignController,
