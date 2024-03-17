@@ -8,5 +8,6 @@ export * from './candidate_interview_processes.controller';
 export * from './candidate_working_histories.controller';
 export * from './candidate_languages.controller';
 export * from './candidate_qualifications.controller';
+export * from './candidate_skills.controller';
 export * from './candidates.controller';
 export * from './channels.controller';

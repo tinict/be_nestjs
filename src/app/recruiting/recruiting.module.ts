@@ -13,6 +13,7 @@ import {
   CandidateInterviewProcessController,
   CandidateLanguageController,
   CandidateQualificationController,
+  CandidateSkillController,
   CandidateWorkingHistoryController,
   ChannelController,
 } from './controllers';
@@ -30,7 +31,7 @@ import {
   CandidateInterviewProcessEntity,
   CandidateLanguageEntity,
   CandidateQualificationEntity,
-  CandidateSKillEntity,
+  CandidateSkillEntity,
   CandidateWorkingHistoryEntity,
   ChannelEntity,
   ContactEntity,
@@ -54,6 +55,7 @@ import {
   CandidateLanguageService,
   CandidateQualificationService,
   CandidateService,
+  CandidateSkillService,
   CandidateWorkingHistoryService,
   ChannelService,
 } from './services';
@@ -74,7 +76,7 @@ import {
       CandidateInterviewProcessEntity,
       CandidateLanguageEntity,
       CandidateQualificationEntity,
-      CandidateSKillEntity,
+      CandidateSkillEntity,
       CandidateWorkingHistoryEntity,
       CandidateEntity,
       ChannelEntity,
@@ -100,6 +102,7 @@ import {
     CandidateWorkingHistoryController,
     CandidateLanguageController,
     CandidateQualificationController,
+    CandidateSkillController,
     CandidateController,
     ChannelController,
   ],
@@ -114,6 +117,7 @@ import {
     CandidateWorkingHistoryService,
     CandidateLanguageService,
     CandidateQualificationService,
+    CandidateSkillService,
     CandidateService,
     ChannelService,
   ],
@@ -133,6 +137,7 @@ export class RecruitingModule implements NestModule {
       CandidateQualificationController,
       CandidateController,
       ChannelController,
+      CandidateSkillService,
     );
   }
 }

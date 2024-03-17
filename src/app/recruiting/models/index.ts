@@ -80,6 +80,14 @@ export * from './candidate_qualifications.create.model';
 export * from './candidate_qualifications.get.model';
 export * from './candidate_qualifications.delete.model';
 
+//Candidate skills model
+export * from './candidate_skills.bulk.model';
+export * from './candidate_skills.update.model';
+export * from './candidate_skills.query.model';
+export * from './candidate_skills.create.model';
+export * from './candidate_skills.get.model';
+export * from './candidate_skills.delete.model';
+
 //Candidate model
 export * from './candidates.bulk.model';
 export * from './candidates.update.model';

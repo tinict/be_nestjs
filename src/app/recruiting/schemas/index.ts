@@ -57,3 +57,8 @@ export * from './candidates.update.schema';
 export * from './channels.bulk.schema';
 export * from './channels.create.schema';
 export * from './channels.update.schema';
+
+//Skill schema
+export * from './candidate_skills.bulk.schema';
+export * from './candidate_skills.create.schema';
+export * from './candidate_skills.update.schema';
