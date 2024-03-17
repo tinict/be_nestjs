@@ -9,3 +9,4 @@ export * from './candidate_working_histories.service';
 export * from './candidate_languages.service';
 export * from './candidate_qualifications.service';
 export * from './candidates.service';
+export * from './channels.service';

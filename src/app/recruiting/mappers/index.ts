@@ -9,3 +9,4 @@ export * from './candidate_working_histories.mapper';
 export * from './candidate_languages.mapper';
 export * from './candidate_qualifications.mapper';
 export * from './candidates.mapper';
+export * from './channels.mapper';

@@ -88,3 +88,10 @@ export * from './candidates.create.model';
 export * from './candidates.get.model';
 export * from './candidates.delete.model';
 
+//Channels model
+export * from './Channels.bulk.model';
+export * from './Channels.update.model';
+export * from './Channels.query.model';
+export * from './Channels.create.model';
+export * from './Channels.get.model';
+export * from './Channels.delete.model';
