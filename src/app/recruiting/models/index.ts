@@ -135,3 +135,11 @@ export * from './campaign_plan.query.model';
 export * from './campaign_plan.create.model';
 export * from './campaign_plan.get.model';
 export * from './campaign_plan.delete.model';
+
+//Campaign internal refer candidates model
+export * from './campaign_internal_refer_candidates.bulk.model';
+export * from './campaign_internal_refer_candidates.update.model';
+export * from './campaign_internal_refer_candidates.query.model';
+export * from './campaign_internal_refer_candidates.create.model';
+export * from './campaign_internal_refer_candidates.get.model';
+export * from './campaign_internal_refer_candidates.delete.model';

@@ -8,6 +8,7 @@ import {
   CampaignContactController,
   CampaignController,
   CampaignEventController,
+  CampaignInternalReferCandidateController,
   CampaignPlanController,
   CampaignProposalPositionConditionController,
   CandidateController,
@@ -53,6 +54,7 @@ import {
   CampaignChannelService,
   CampaignContactService,
   CampaignEventService,
+  CampaignInternalReferCandidateService,
   CampaignPlanService,
   CampaignProposalPositionConditionService,
   CampaignService,
@@ -116,7 +118,8 @@ import {
     CampaignContactController,
     ContactController,
     ContactSkillController,
-    CampaignPlanController
+    CampaignPlanController,
+    CampaignInternalReferCandidateController
   ],
   providers: [
     CampaignCandidateService,
@@ -136,7 +139,8 @@ import {
     ChannelService,
     ContactService,
     ContactSkillService,
-    CampaignPlanService
+    CampaignPlanService,
+    CampaignInternalReferCandidateService
   ],
 })
 export class RecruitingModule implements NestModule {
@@ -158,7 +162,8 @@ export class RecruitingModule implements NestModule {
       CandidateSkillController,
       ContactController,
       ContactSkillController,
-      CampaignPlanController
+      CampaignPlanController,
+      CampaignInternalReferCandidateController
     );
   }
 }

@@ -15,3 +15,4 @@ export * from './campaign_contact.mapper';
 export * from './contact.mapper';
 export * from './contact_skills.mapper';
 export * from './campaign_plan.mapper';
+export * from './campaign_internal_refer_candidates.mapper';

@@ -82,3 +82,8 @@ export * from './contact_skills.update.schema';
 export * from './campaign_plan.bulk.schema';
 export * from './campaign_plan.create.schema';
 export * from './campaign_plan.update.schema';
+
+//CampaignInternalReferCandidate schema
+export * from './campaign_internal_refer_candidates.bulk.schema';
+export * from './campaign_internal_refer_candidates.create.schema';
+export * from './campaign_internal_refer_candidates.update.schema';
