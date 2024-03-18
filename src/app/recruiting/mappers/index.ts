@@ -14,3 +14,4 @@ export * from './channels.mapper';
 export * from './campaign_contact.mapper';
 export * from './contact.mapper';
 export * from './contact_skills.mapper';
+export * from './campaign_plan.mapper';

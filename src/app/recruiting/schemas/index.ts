@@ -77,3 +77,8 @@ export * from './contact.update.schema';
 export * from './contact_skills.bulk.schema';
 export * from './contact_skills.create.schema';
 export * from './contact_skills.update.schema';
+
+//Campaign plan schema
+export * from './campaign_plan.bulk.schema';
+export * from './campaign_plan.create.schema';
+export * from './campaign_plan.update.schema';

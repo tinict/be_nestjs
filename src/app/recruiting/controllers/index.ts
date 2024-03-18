@@ -14,3 +14,4 @@ export * from './channels.controller';
 export * from './campaign_contact.controller';
 export * from './contact.controller';
 export * from './contact_skills.controller';
+export * from './campaign_plan.controller';

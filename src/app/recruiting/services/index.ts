@@ -14,3 +14,4 @@ export * from './channels.service';
 export * from './campaign_contact.service';
 export * from './contact.service';
 export * from './contact_skills.service';
+export * from './campaign_plan.service';

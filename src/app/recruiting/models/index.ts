@@ -127,3 +127,11 @@ export * from './contact_skills.query.model';
 export * from './contact_skills.create.model';
 export * from './contact_skills.get.model';
 export * from './contact_skills.delete.model';
+
+//Campaign plan model
+export * from './campaign_plan.bulk.model';
+export * from './campaign_plan.update.model';
+export * from './campaign_plan.query.model';
+export * from './campaign_plan.create.model';
+export * from './campaign_plan.get.model';
+export * from './campaign_plan.delete.model';
