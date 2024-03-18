@@ -67,3 +67,8 @@ export * from './candidate_skills.update.schema';
 export * from './campaign_contact.bulk.schema';
 export * from './campaign_contact.create.schema';
 export * from './campaign_contact.update.schema';
+
+//Contact schema
+export * from './contact.bulk.schema';
+export * from './contact.create.schema';
+export * from './contact.update.schema';

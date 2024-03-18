@@ -111,3 +111,11 @@ export * from './campaign_contact.query.model';
 export * from './campaign_contact.create.model';
 export * from './campaign_contact.get.model';
 export * from './campaign_contact.delete.model';
+
+//contact model
+export * from './contact.bulk.model';
+export * from './contact.update.model';
+export * from './contact.query.model';
+export * from './contact.create.model';
+export * from './contact.get.model';
+export * from './contact.delete.model';
