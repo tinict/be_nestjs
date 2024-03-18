@@ -13,3 +13,4 @@ export * from './candidates.mapper';
 export * from './channels.mapper';
 export * from './campaign_contact.mapper';
 export * from './contact.mapper';
+export * from './contact_skills.mapper';

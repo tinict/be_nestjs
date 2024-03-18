@@ -119,3 +119,11 @@ export * from './contact.query.model';
 export * from './contact.create.model';
 export * from './contact.get.model';
 export * from './contact.delete.model';
+
+//contact skills model
+export * from './contact_skills.bulk.model';
+export * from './contact_skills.update.model';
+export * from './contact_skills.query.model';
+export * from './contact_skills.create.model';
+export * from './contact_skills.get.model';
+export * from './contact_skills.delete.model';
