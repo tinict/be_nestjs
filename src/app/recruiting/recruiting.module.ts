@@ -21,6 +21,7 @@ import {
   ChannelController,
   ContactController,
   ContactSkillController,
+  EventController,
 } from './controllers';
 import {
   CampaignCandidateEntity,
@@ -68,6 +69,7 @@ import {
   ChannelService,
   ContactService,
   ContactSkillService,
+  EventService,
 } from './services';
 
 @Module({
@@ -119,7 +121,8 @@ import {
     ContactController,
     ContactSkillController,
     CampaignPlanController,
-    CampaignInternalReferCandidateController
+    CampaignInternalReferCandidateController,
+    EventController,
   ],
   providers: [
     CampaignCandidateService,
@@ -140,7 +143,8 @@ import {
     ContactService,
     ContactSkillService,
     CampaignPlanService,
-    CampaignInternalReferCandidateService
+    CampaignInternalReferCandidateService,
+    EventService
   ],
 })
 export class RecruitingModule implements NestModule {
@@ -163,7 +167,8 @@ export class RecruitingModule implements NestModule {
       ContactController,
       ContactSkillController,
       CampaignPlanController,
-      CampaignInternalReferCandidateController
+      CampaignInternalReferCandidateController,
+      EventController,
     );
   }
 }

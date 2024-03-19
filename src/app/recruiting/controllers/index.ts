@@ -16,3 +16,4 @@ export * from './contact.controller';
 export * from './contact_skills.controller';
 export * from './campaign_plan.controller';
 export * from './campaign_internal_refer_candidates.controller';
+export * from './events.controller';

@@ -16,3 +16,4 @@ export * from './contact.service';
 export * from './contact_skills.service';
 export * from './campaign_plan.service';
 export * from './campaign_internal_refer_candidates.service';
+export * from './events.service';

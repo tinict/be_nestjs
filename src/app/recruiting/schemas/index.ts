@@ -73,7 +73,7 @@ export * from './contact.bulk.schema';
 export * from './contact.create.schema';
 export * from './contact.update.schema';
 
-//Contact schema
+//Contact skills schema
 export * from './contact_skills.bulk.schema';
 export * from './contact_skills.create.schema';
 export * from './contact_skills.update.schema';
@@ -87,3 +87,8 @@ export * from './campaign_plan.update.schema';
 export * from './campaign_internal_refer_candidates.bulk.schema';
 export * from './campaign_internal_refer_candidates.create.schema';
 export * from './campaign_internal_refer_candidates.update.schema';
+
+//events schema
+export * from './events.bulk.schema';
+export * from './events.create.schema';
+export * from './events.update.schema';
