@@ -18,3 +18,4 @@ export * from './campaign_plan.service';
 export * from './campaign_internal_refer_candidates.service';
 export * from './events.service';
 export * from './proposals.service';
+export * from './positions.service';

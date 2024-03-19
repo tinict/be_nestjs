@@ -41,14 +41,14 @@ import { ProposalService } from '../services';
 @UseInterceptors(AuthenticationMiddleware)
 export class ProposalController {
   constructor(
-    private readonly ProposalService: ProposalService,
+    private readonly proposalService: ProposalService,
   ) {}
 
   @Post('')
   @UsePipes(new JoiValidationPipe(ProposalCreateSchema))
   async create(@Body() body: ProposalCreateModel, @Req() req: Request) {
     try {
-      const result = await this.ProposalService.create(
+      const result = await this.proposalService.create(
         body,
         _.get(req, 'body.credentials'),
       );
@@ -62,7 +62,7 @@ export class ProposalController {
   @UsePipes(new JoiValidationPipe(ProposalBulkSchema))
   async bulk(@Body() body: ProposalBulkModel, @Req() req: Request) {
     try {
-      await this.ProposalService.bulk(
+      await this.proposalService.bulk(
         body.items,
         _.get(req, 'body.credentials'),
       );
@@ -80,7 +80,7 @@ export class ProposalController {
     @Req() req: Request,
   ) {
     try {
-      const result = await this.ProposalService.findByIdOrFail(
+      const result = await this.proposalService.findByIdOrFail(
         id,
         _.get(req, 'body.credentials'),
         query,
@@ -94,7 +94,7 @@ export class ProposalController {
   @Get('')
   async all(@Query() query: ProposalQueryModel, @Req() req: Request) {
     try {
-      const { rows, paging } = await this.ProposalService.all(
+      const { rows, paging } = await this.proposalService.all(
         query,
         _.get(req, 'body.credentials'),
       );
@@ -116,7 +116,7 @@ export class ProposalController {
     @Req() req: Request,
   ) {
     try {
-      const result = await this.ProposalService.update(
+      const result = await this.proposalService.update(
         id,
         body,
         _.get(req, 'body.credentials'),
@@ -131,7 +131,7 @@ export class ProposalController {
   @Delete(':id')
   async delete(@Param('id') id: string, @Req() req: Request) {
     try {
-      await this.ProposalService.delete(
+      await this.proposalService.delete(
         id,
         _.get(req, 'body.credentials'),
       );

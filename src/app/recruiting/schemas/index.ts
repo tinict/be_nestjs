@@ -97,3 +97,8 @@ export * from './events.update.schema';
 export * from './proposals.bulk.schema';
 export * from './proposals.create.schema';
 export * from './proposals.update.schema';
+
+//Positions schema
+export * from './positions.bulk.schema';
+export * from './positions.create.schema';
+export * from './positions.update.schema';

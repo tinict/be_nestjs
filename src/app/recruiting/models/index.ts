@@ -159,3 +159,11 @@ export * from './proposals.query.model';
 export * from './proposals.create.model';
 export * from './proposals.get.model';
 export * from './proposals.delete.model';
+
+//Positions model
+export * from './positions.bulk.model';
+export * from './positions.update.model';
+export * from './positions.query.model';
+export * from './positions.create.model';
+export * from './positions.get.model';
+export * from './positions.delete.model';

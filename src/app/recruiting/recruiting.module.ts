@@ -22,6 +22,7 @@ import {
   ContactController,
   ContactSkillController,
   EventController,
+  PositionController,
   ProposalController,
 } from './controllers';
 import {
@@ -71,6 +72,7 @@ import {
   ContactService,
   ContactSkillService,
   EventService,
+  PositionService,
   ProposalService,
 } from './services';
 
@@ -126,6 +128,7 @@ import {
     CampaignInternalReferCandidateController,
     EventController,
     ProposalController,
+    PositionController,
   ],
   providers: [
     CampaignCandidateService,
@@ -149,6 +152,7 @@ import {
     CampaignInternalReferCandidateService,
     EventService,
     ProposalService,
+    PositionService,
   ],
 })
 export class RecruitingModule implements NestModule {
@@ -174,6 +178,7 @@ export class RecruitingModule implements NestModule {
       CampaignInternalReferCandidateController,
       EventController,
       ProposalController,
+      ProposalService,
     );
   }
 }
