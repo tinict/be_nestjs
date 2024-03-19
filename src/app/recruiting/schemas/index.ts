@@ -92,3 +92,8 @@ export * from './campaign_internal_refer_candidates.update.schema';
 export * from './events.bulk.schema';
 export * from './events.create.schema';
 export * from './events.update.schema';
+
+//Proposals schema
+export * from './proposals.bulk.schema';
+export * from './proposals.create.schema';
+export * from './proposals.update.schema';

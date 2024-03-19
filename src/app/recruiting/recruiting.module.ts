@@ -22,6 +22,7 @@ import {
   ContactController,
   ContactSkillController,
   EventController,
+  ProposalController,
 } from './controllers';
 import {
   CampaignCandidateEntity,
@@ -70,6 +71,7 @@ import {
   ContactService,
   ContactSkillService,
   EventService,
+  ProposalService,
 } from './services';
 
 @Module({
@@ -100,7 +102,7 @@ import {
       ProposalPositionConditionSkillEntity,
       ProposalPositionConditionEntity,
       ProposalEntity,
-      SkillEntity
+      SkillEntity,
     ]),
   ],
   controllers: [
@@ -123,6 +125,7 @@ import {
     CampaignPlanController,
     CampaignInternalReferCandidateController,
     EventController,
+    ProposalController,
   ],
   providers: [
     CampaignCandidateService,
@@ -144,7 +147,8 @@ import {
     ContactSkillService,
     CampaignPlanService,
     CampaignInternalReferCandidateService,
-    EventService
+    EventService,
+    ProposalService,
   ],
 })
 export class RecruitingModule implements NestModule {
@@ -169,6 +173,7 @@ export class RecruitingModule implements NestModule {
       CampaignPlanController,
       CampaignInternalReferCandidateController,
       EventController,
+      ProposalController,
     );
   }
 }

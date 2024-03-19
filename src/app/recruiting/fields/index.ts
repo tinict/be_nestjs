@@ -17,3 +17,4 @@ export * from './contact_skills.field';
 export * from './campaign_plan.field';
 export * from './campaign_internal_refer_candidates.field';
 export * from './events.field';
+export * from './proposals.field';

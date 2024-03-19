@@ -151,3 +151,11 @@ export * from './events.query.model';
 export * from './events.create.model';
 export * from './events.get.model';
 export * from './events.delete.model';
+
+//Proposals model
+export * from './proposals.bulk.model';
+export * from './proposals.update.model';
+export * from './proposals.query.model';
+export * from './proposals.create.model';
+export * from './proposals.get.model';
+export * from './proposals.delete.model';

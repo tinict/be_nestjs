@@ -36,7 +36,7 @@ import {
 import { EventService } from '../services';
 
 @ApiTags('Recruiting')
-@Controller('v1/Events')
+@Controller('v1/events')
 @ApiBearerAuth()
 @UseInterceptors(AuthenticationMiddleware)
 export class EventController {
