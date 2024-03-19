@@ -19,3 +19,4 @@ export * from './campaign_internal_refer_candidates.controller';
 export * from './events.controller';
 export * from './proposals.controller';
 export * from './positions.controller';
+export * from './skills.controller';

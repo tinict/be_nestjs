@@ -167,3 +167,11 @@ export * from './positions.query.model';
 export * from './positions.create.model';
 export * from './positions.get.model';
 export * from './positions.delete.model';
+
+//Skills model
+export * from './skills.bulk.model';
+export * from './skills.update.model';
+export * from './skills.query.model';
+export * from './skills.create.model';
+export * from './skills.get.model';
+export * from './skills.delete.model';

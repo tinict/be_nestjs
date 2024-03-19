@@ -19,3 +19,4 @@ export * from './campaign_internal_refer_candidates.mapper';
 export * from './events.mapper';
 export * from './proposals.mapper';
 export * from './positions.mapper';
+export * from './skills.mapper';

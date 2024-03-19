@@ -24,6 +24,7 @@ import {
   EventController,
   PositionController,
   ProposalController,
+  SkillController,
 } from './controllers';
 import {
   CampaignCandidateEntity,
@@ -74,6 +75,7 @@ import {
   EventService,
   PositionService,
   ProposalService,
+  SkillService,
 } from './services';
 
 @Module({
@@ -129,6 +131,7 @@ import {
     EventController,
     ProposalController,
     PositionController,
+    SkillController
   ],
   providers: [
     CampaignCandidateService,
@@ -153,6 +156,7 @@ import {
     EventService,
     ProposalService,
     PositionService,
+    SkillService,
   ],
 })
 export class RecruitingModule implements NestModule {
@@ -178,7 +182,8 @@ export class RecruitingModule implements NestModule {
       CampaignInternalReferCandidateController,
       EventController,
       ProposalController,
-      ProposalService,
+      ProposalController,
+      SkillController,
     );
   }
 }

@@ -102,3 +102,8 @@ export * from './proposals.update.schema';
 export * from './positions.bulk.schema';
 export * from './positions.create.schema';
 export * from './positions.update.schema';
+
+//Positions schema
+export * from './skills.bulk.schema';
+export * from './skills.create.schema';
+export * from './skills.update.schema';

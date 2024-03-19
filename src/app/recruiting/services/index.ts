@@ -19,3 +19,4 @@ export * from './campaign_internal_refer_candidates.service';
 export * from './events.service';
 export * from './proposals.service';
 export * from './positions.service';
+export * from './skills.service';

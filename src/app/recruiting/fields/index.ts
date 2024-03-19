@@ -19,3 +19,4 @@ export * from './campaign_internal_refer_candidates.field';
 export * from './events.field';
 export * from './proposals.field';
 export * from './positions.field';
+export * from './skills.field';
