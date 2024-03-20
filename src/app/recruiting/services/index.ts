@@ -5,3 +5,4 @@ export * from './campaign_proposal_position_conditions.service';
 export * from './campaigns.service';
 export * from './candidate_educations.service';
 export * from './candidate_interview_processes.service';
+export * from './candidate_working_histories.service';

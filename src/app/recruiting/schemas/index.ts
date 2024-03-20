@@ -32,3 +32,8 @@ export * from './candidate_education.update.schema';
 export * from './candidate_interview_processes.bulk.schema';
 export * from './candidate_interview_processes.create.schema';
 export * from './candidate_interview_processes.update.schema';
+
+//Candidate working histories schema
+export * from './candidate_working_histories.bulk.schema';
+export * from './candidate_working_histories.create.schema';
+export * from './candidate_working_histories.update.schema';
