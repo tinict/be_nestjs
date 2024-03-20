@@ -17,8 +17,8 @@ async function DatabaseOrmModule(): Promise<DynamicModule> {
     host: process.env.RDS_HOST,
     port: +process.env.RDS_PORT,
     database: process.env.RDS_NAME,
-    username: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
+    username: process.env.RDS_USER,
+    password: process.env.RDS_PASSWORD,
     // socketPath: `/cloudsql/${process.env.INSTANCE_UNIX_SOCKET}`,
     // replication: {
     //   master: {
