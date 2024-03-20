@@ -37,3 +37,73 @@ export * from './candidate_interview_processes.update.schema';
 export * from './candidate_working_histories.bulk.schema';
 export * from './candidate_working_histories.create.schema';
 export * from './candidate_working_histories.update.schema';
+
+//Candidate working languages schema
+export * from './candidate_languages.bulk.schema';
+export * from './candidate_languages.create.schema';
+export * from './candidate_languages.update.schema';
+
+//Candidate qualifications schema
+export * from './candidate_qualifications.bulk.schema';
+export * from './candidate_qualifications.create.schema';
+export * from './candidate_qualifications.update.schema';
+
+//Candidate schema
+export * from './candidates.bulk.schema';
+export * from './candidates.create.schema';
+export * from './candidates.update.schema';
+
+//Channels schema
+export * from './channels.bulk.schema';
+export * from './channels.create.schema';
+export * from './channels.update.schema';
+
+//Skill schema
+export * from './candidate_skills.bulk.schema';
+export * from './candidate_skills.create.schema';
+export * from './candidate_skills.update.schema';
+
+//Campaign Contact schema
+export * from './campaign_contact.bulk.schema';
+export * from './campaign_contact.create.schema';
+export * from './campaign_contact.update.schema';
+
+//Contact schema
+export * from './contact.bulk.schema';
+export * from './contact.create.schema';
+export * from './contact.update.schema';
+
+//Contact skills schema
+export * from './contact_skills.bulk.schema';
+export * from './contact_skills.create.schema';
+export * from './contact_skills.update.schema';
+
+//Campaign plan schema
+export * from './campaign_plan.bulk.schema';
+export * from './campaign_plan.create.schema';
+export * from './campaign_plan.update.schema';
+
+//CampaignInternalReferCandidate schema
+export * from './campaign_internal_refer_candidates.bulk.schema';
+export * from './campaign_internal_refer_candidates.create.schema';
+export * from './campaign_internal_refer_candidates.update.schema';
+
+//events schema
+export * from './events.bulk.schema';
+export * from './events.create.schema';
+export * from './events.update.schema';
+
+//Proposals schema
+export * from './proposals.bulk.schema';
+export * from './proposals.create.schema';
+export * from './proposals.update.schema';
+
+//Positions schema
+export * from './positions.bulk.schema';
+export * from './positions.create.schema';
+export * from './positions.update.schema';
+
+//Positions schema
+export * from './skills.bulk.schema';
+export * from './skills.create.schema';
+export * from './skills.update.schema';
