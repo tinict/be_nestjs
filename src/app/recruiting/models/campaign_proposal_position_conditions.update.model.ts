@@ -1,3 +1,0 @@
-import { CampaignProposalPositionConditionCreateModel } from './campaign_proposal_position_conditions.create.model';
-
-export class CampaignProposalPositionConditionUpdateModel extends CampaignProposalPositionConditionCreateModel {}
