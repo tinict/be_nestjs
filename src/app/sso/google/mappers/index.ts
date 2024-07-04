@@ -1,1 +1,1 @@
-export * from './googleAccount.mapper';
+export * from './google-profile.mapper';
