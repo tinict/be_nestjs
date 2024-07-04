@@ -48,33 +48,31 @@ export class AuthenticationGoogleController {
 
     @Get('callback')
     @UseGuards(GoogleAuthGuard)
-    googleAuthRedirect(
+    async googleAuthRedirect(
         @Req()
         req: Request,
+        @Res()
+        res: Response,
     ) {
         console.log(req?.user);
         //Auth Google
-
+        const profileGoogle = GoogleProfileMapper.toGoogleProfile(req?.user);
+        console.log("profileGoogle: ", profileGoogle);
+        const client_token = await this.authService.generateToken(profileGoogle);
+        console.log(client_token);
+        res.cookie('client_token', client_token).redirect(`http://localhost:5000/api/v1/auth/google/client-token?continue=${"http://localhost:3003"}`);
         return;
     };
 
-    async authGoogle(
+    @Get('client-token')
+    async responseTokenClient(
         @Req()
-        req: Request, 
+        req: Request,
         @Res()
-        res: Response, 
-        @Next()
-        next: NextFunction
+        res: Response,
     ) {
         try {
-            // const profileUser = {
-            //     access_token: req.accessToken,
-            //     user_id: (req.user as { id: string })?.id
-            // };
-            const profileGoogle =  GoogleProfileMapper.toGoogleProfile(req?.user);
-            console.log("profileGoogle: ", profileGoogle);
-            // const client_token = await this.authService.generateToken(profileUser);
-            // res.cookie('client_token', client_token).redirect(`http://localhost:5000/api/v1/google/client_token?continue=${"http://localhost:3003"}`);
+            res.redirect(`${req.query.continue}`);
         } catch (error) {
             res.status(500).send('An error occurred');
         }
@@ -99,16 +97,6 @@ export class AuthenticationGoogleController {
     //         res.status(200).send('Logout successfull');
     //     } catch (error) {
     //         console.log(error);
-    //         res.status(500).send('An error occurred');
-    //     }
-    // };
-
-    
-
-    // async responseTokenClient(req: Request, res: Response, next: NextFunction) {
-    //     try {
-    //         res.redirect(`${req.query.continue}`);
-    //     } catch (error) {
     //         res.status(500).send('An error occurred');
     //     }
     // };
