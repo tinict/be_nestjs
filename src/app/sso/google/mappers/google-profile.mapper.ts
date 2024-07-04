@@ -5,7 +5,7 @@ export class GoogleProfileMapper {
         return {
             google_id: _.get(entity, 'google_id'),
             firstName: _.get(entity, 'firstName'),
-            lastname: _.get(entity, 'lastname'),
+            lastName: _.get(entity, 'lastName'),
             picture: _.get(entity, 'picture'),
             accessToken: _.get(entity, 'accessToken'),
             refreshToken: _.get(entity, 'refreshToken'),
