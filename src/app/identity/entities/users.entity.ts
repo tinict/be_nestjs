@@ -12,8 +12,9 @@ export class UserEntity extends BaseEntity {
         length: 32,
         name: 'username',
         unique: true,
+        nullable: true
     })
-    username: string;
+    Username: string;
 
     /**
      * firstname
@@ -23,7 +24,7 @@ export class UserEntity extends BaseEntity {
         type: 'nvarchar',
         length: 35,
     })
-    firstname: string;
+    Firstname: string;
 
     /**
      * lastname
@@ -33,7 +34,7 @@ export class UserEntity extends BaseEntity {
         type: 'nvarchar',
         length: 35,
     })
-    lastname: string;
+    Lastname: string;
 
     /**
      * email
@@ -42,8 +43,9 @@ export class UserEntity extends BaseEntity {
         name: 'email',
         type: 'varchar',
         length: 320,
+        unique: true,
     })
-    email: string;
+    Email: string;
 
     /**
      * phone
@@ -52,18 +54,21 @@ export class UserEntity extends BaseEntity {
         name: 'phone',
         type: 'varchar',
         length: 15,
+        unique: true,
+        nullable: true,
+
     })
-    phone: string;
+    Phone: string;
 
     /**
      * url_picture
      */
     @Column({
-        name: 'url_picture',
+        name: 'picture',
         type: 'varchar',
         length: 320,
     })
-    url_picture: string;
+    Picture: string;
 
     /**
      * gender
@@ -73,7 +78,7 @@ export class UserEntity extends BaseEntity {
         type: 'enum',
         enum: Gender,
     })
-    gender: Gender;
+    Gender: Gender;
 
     /**
      * Date Of Birth
@@ -81,15 +86,17 @@ export class UserEntity extends BaseEntity {
     @Column({
         name: 'dob',
         type: 'datetime',
+        nullable: true,
     })
-    dob: Date;
+    Dob: Date;
 
     /**
-     * Description
+     * bio
      */
     @Column({
-        name: 'description',
+        name: 'bio',
         type: 'text',
+        nullable: true,
     })
-    description: string;
+    Bio: string;
 };

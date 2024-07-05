@@ -1,19 +1,27 @@
 import { MiddlewareConsumer, Module, NestModule, RequestMethod } from '@nestjs/common';
-import { AuthenticationService } from './services';
+import { AuthenticationService, GoogleAccountService } from './services';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AuthenticationGoogleController } from './http/controllers';
+import { 
+    AuthenticationGoogleController, 
+    GoogleAccountController 
+} from './http/controllers';
 import { GoogleStrategy } from './strategy';
 import { AuthMiddleware } from './http/middlewares';
+import { UserEntity } from 'src/app/identity/entities';
 
 @Module({
     imports: [
-        TypeOrmModule.forFeature([])
+        TypeOrmModule.forFeature([
+            UserEntity
+        ])
     ],
     controllers: [
-        AuthenticationGoogleController
+        AuthenticationGoogleController,
+        GoogleAccountController
     ],
     providers: [
         AuthenticationService,
+        GoogleAccountService,
         GoogleStrategy
     ],
 })
