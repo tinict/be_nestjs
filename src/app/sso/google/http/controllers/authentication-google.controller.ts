@@ -2,6 +2,8 @@ import {
     Controller,
     Get,
     Next,
+    Param,
+    Query,
     Req,
     Res,
     UseGuards
@@ -12,7 +14,10 @@ import {
     Response
 } from 'express';
 import { ApiTags } from '@nestjs/swagger';
-import { AuthenticationService } from '../../services';
+import { 
+    AuthenticationService, 
+    GoogleAccountService 
+} from '../../services';
 import { GoogleAuthGuard } from '../../guard';
 import { GoogleStrategy } from '../../strategy/google.strategy';
 import { GoogleProfileMapper } from '../../Mappers';
@@ -23,6 +28,7 @@ export class AuthenticationGoogleController {
 
     constructor(
         private authService: AuthenticationService,
+        private googleAccountService: GoogleAccountService,
         private googleStrategy: GoogleStrategy
     ) { };
 
@@ -59,6 +65,11 @@ export class AuthenticationGoogleController {
             //Auth Google
             const profileGoogle = GoogleProfileMapper.toGoogleProfile(req?.user);
             console.log("profileGoogle: ", profileGoogle);
+
+            //Create Account
+            await this.googleAccountService.create(profileGoogle);
+
+            //Generate Token For Client
             const client_token = await this.authService.generateToken(profileGoogle);
             console.log(client_token);
             res.cookie('client_token', client_token).redirect(`http://localhost:5000/api/v1/auth/google/client-token?continue=${"http://localhost:3003"}`);
@@ -89,10 +100,13 @@ export class AuthenticationGoogleController {
         req: Request,
         @Res()
         res: Response,
+        @Param()
+        id: String
     ) {
         try {
-            console.log('me');
-            return;
+            const me = await this.googleAccountService.me(id as string);
+            console.log("me: " + me);
+            return res.status(200).json(me);
         } catch (error) {
             res.status(500).send('An error occurred');
         }

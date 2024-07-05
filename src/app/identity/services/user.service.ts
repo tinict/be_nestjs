@@ -198,4 +198,5 @@ export class UserService {
 
     return this.categoryRepository.save(entity);
   };
-}
+};
+

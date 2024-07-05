@@ -1,9 +1,14 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
 const bcrypt = require('bcryptjs');
 import jwt from 'jsonwebtoken';
+import { UserEntity } from 'src/app/identity/entities';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class AuthenticationService {
+
+    constructor() {};
 
     /**
      * 
