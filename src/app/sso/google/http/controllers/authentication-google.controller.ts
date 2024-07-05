@@ -54,18 +54,22 @@ export class AuthenticationGoogleController {
         @Res()
         res: Response,
     ) {
-        console.log(req?.user);
-        //Auth Google
-        const profileGoogle = GoogleProfileMapper.toGoogleProfile(req?.user);
-        console.log("profileGoogle: ", profileGoogle);
-        const client_token = await this.authService.generateToken(profileGoogle);
-        console.log(client_token);
-        res.cookie('client_token', client_token).redirect(`http://localhost:5000/api/v1/auth/google/client-token?continue=${"http://localhost:3003"}`);
-        return;
+        try {
+            console.log(req?.user);
+            //Auth Google
+            const profileGoogle = GoogleProfileMapper.toGoogleProfile(req?.user);
+            console.log("profileGoogle: ", profileGoogle);
+            const client_token = await this.authService.generateToken(profileGoogle);
+            console.log(client_token);
+            res.cookie('client_token', client_token).redirect(`http://localhost:5000/api/v1/auth/google/client-token?continue=${"http://localhost:3003"}`);
+            return;
+        } catch (error: any) {
+            console.error(error);
+        }
     };
 
     @Get('client-token')
-    async responseTokenClient(
+    async responseClientToken(
         @Req()
         req: Request,
         @Res()
@@ -73,6 +77,22 @@ export class AuthenticationGoogleController {
     ) {
         try {
             res.redirect(`${req.query.continue}`);
+        } catch (error) {
+            res.status(500).send('An error occurred');
+        }
+    };
+
+    //Test api
+    @Get('me')
+    async me(
+        @Req()
+        req: Request,
+        @Res()
+        res: Response,
+    ) {
+        try {
+            console.log('me');
+            return;
         } catch (error) {
             res.status(500).send('An error occurred');
         }

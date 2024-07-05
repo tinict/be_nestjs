@@ -1,79 +1,60 @@
-// import {
-//     AuthenticationService,
-//     GoogleAccountService,
-// } from "../../Services";
-// import { TYPES } from "../../Database/types";
-import passport from 'passport';
-// import { GoogleAccountMapper } from "../../mappers/google-profile.mapper";
-// import config from "../../config";
-import { 
-    NextFunction, 
-    Request, 
-    Response 
-} from "express";
-import { 
-    Inject, 
-    Injectable 
+import {
+    Injectable,
+    NestMiddleware
 } from '@nestjs/common';
-var GoogleStrategy = require('passport-google-oauth20').Strategy;
+import { ResponseHelper } from 'src/helpers';
+import * as MSG from '../../../../../constants/msg';
+import { AuthenticationService } from '../../services';
 
 @Injectable()
-export class AuthMiddleware {
-    // private authService: AuthenticationService;
-    // protected googleAccountService: GoogleAccountService;
-
+export class AuthMiddleware implements NestMiddleware {
     constructor(
-        // @Inject(TYPES.AuthenticationService)
-        // authService: AuthenticationService,
-        // @inject(TYPES.GoogleAccountService)
-        // googleAccountSerivce: GoogleAccountService,
-    ) {
-        // this.authService = authService;
-        // this.googleAccountService = googleAccountSerivce;
-        // this.configurePassport();
-    };
+        private authService: AuthenticationService
+    ) { };
 
-    configurePassport() {
-        passport.use(new GoogleStrategy({
-            clientID: process.env.GOOGLE_CLIENT_ID,
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-            callbackURL: "http://localhost:5000/api/v1/auth/google/callback",
-        }, async (accessToken: any, refreshToken: any, profile: any, cb: any) => {
-            console.log(profile);
-            // this.googleAccountService.create(
-            //     GoogleAccountMapper.toGoogleAccount({
-            //         google_id: profile.id,
-            //         name: profile.name.givenName,
-            //         family_name: profile.name.familyName,
-            //         url_picture: profile.photos[0].value,
-            //         email: profile.emails[0].value,
-            //         access_token: accessToken,
-            //     })
-            // );
-            return cb(null, profile, accessToken);
+    async use(req: any, res: any, next: (error?: any) => void) {
+        if (!req?.headers?.authorization) {
+            throw ResponseHelper.HttpException(
+                ResponseHelper.UnAuthorized(MSG.MSG_AUTH_FAILED),
+            );
         }
-        ));
-    };
 
-    async isAuthenticated(req: Request, res: Response, next: NextFunction) {
-        try {
-            const authHeader = req.headers.authorization;
-            const client_token = authHeader || '';
-            console.log(client_token);
-            if (client_token === null) {
-                return res.status(401).json({ error: 'Unauthorized' });
-            }
-            // const verifyToken = await this.authService.verifyToken(client_token);
-            // if (verifyToken === null) {
-            //     return res.status(401).json({ error: 'Unauthorized' });
-            // }
+        //Get Client token
+        const authorization = (
+            req?.headers?.authorization?.toString() || ''
+        );
 
-            // req.user = verifyToken;
-            // console.log(verifyToken);
-            next();
-        } catch (error) {
-            console.log(error);
-            res.status(500).send('An error occurred');
+        const verifyToken = await this.authService.verifyToken(authorization);
+        if (verifyToken === null) {
+            throw ResponseHelper.HttpException(
+                ResponseHelper.UnAuthorized(MSG.MSG_AUTH_FAILED),
+            );
         }
+
+        console.log("Decode: ", verifyToken);
+
+        next();
     };
+
+    // async isAuthenticated(req: Request, res: Response, next: NextFunction) {
+    //     try {
+    //         const authHeader = req.headers.authorization;
+    //         const client_token = authHeader || '';
+    //         console.log(client_token);
+    //         if (client_token === null) {
+    //             return res.status(401).json({ error: 'Unauthorized' });
+    //         }
+    //         const verifyToken = await this.authService.verifyToken(client_token);
+    //         if (verifyToken === null) {
+    //             return res.status(401).json({ error: 'Unauthorized' });
+    //         }
+
+    //         req.user = verifyToken;
+    //         console.log(verifyToken);
+    //         next();
+    //     } catch (error) {
+    //         console.log(error);
+    //         res.status(500).send('An error occurred');
+    //     }
+    // };
 };
