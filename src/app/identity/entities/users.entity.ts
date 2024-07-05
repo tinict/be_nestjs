@@ -16,24 +16,24 @@ export class UserEntity extends BaseEntity {
     username: string;
 
     /**
-     * family_name
+     * firstname
      */
     @Column({
-        name: 'family_name',
+        name: 'firstname',
         type: 'nvarchar',
         length: 35,
     })
-    family_name: string;
+    firstname: string;
 
     /**
-     * name
+     * lastname
      */
-    // @Column({
-    //     name: 'name',
-    //     type: 'nvarchar',
-    //     length: 50,
-    // })
-    // name: string;
+    @Column({
+        name: 'lastname',
+        type: 'nvarchar',
+        length: 35,
+    })
+    lastname: string;
 
     /**
      * email
@@ -84,4 +84,12 @@ export class UserEntity extends BaseEntity {
     })
     dob: Date;
 
+    /**
+     * Description
+     */
+    @Column({
+        name: 'description',
+        type: 'text',
+    })
+    description: string;
 };

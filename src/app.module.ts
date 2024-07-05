@@ -1,16 +1,21 @@
 import { Module } from '@nestjs/common';
 
 import { AppController } from './app.controller';
-import { AppService } from './app.service';;
-import { CommonModule } from './app/common/common.module';
-import { MysqlModule } from './app/database/mysql';
-import { SsoModule } from './app/sso/sso.module';
+import { AppService } from './app.service';
+import { 
+  CommonModule, 
+  IdentityModule, 
+  MysqlModule, 
+  SsoModule 
+} from './app';
+
 
 @Module({
   imports: [
     MysqlModule,
     CommonModule,
-    SsoModule
+    SsoModule,
+    IdentityModule
   ],
   controllers: [AppController],
   providers: [AppService],

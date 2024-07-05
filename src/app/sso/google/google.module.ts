@@ -1,14 +1,13 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule, RequestMethod } from '@nestjs/common';
 import { AuthenticationService } from './services';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthenticationGoogleController } from './http/controllers';
-import { GoogleStrategy } from './strategy/google.strategy';
+import { GoogleStrategy } from './strategy';
+import { AuthMiddleware } from './http/middlewares';
 
 @Module({
     imports: [
-        TypeOrmModule.forFeature([
-
-        ])
+        TypeOrmModule.forFeature([])
     ],
     controllers: [
         AuthenticationGoogleController
@@ -18,4 +17,12 @@ import { GoogleStrategy } from './strategy/google.strategy';
         GoogleStrategy
     ],
 })
-export class GoogleModule {}
+export class GoogleModule implements NestModule {
+    configure(consumer: MiddlewareConsumer) {
+        consumer
+            .apply(AuthMiddleware)
+            .forRoutes(
+                { path: 'v1/auth/google/me', method: RequestMethod.GET }
+            );
+    }
+};
