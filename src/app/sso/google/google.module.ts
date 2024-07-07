@@ -30,7 +30,7 @@ export class GoogleModule implements NestModule {
         consumer
             .apply(AuthMiddleware)
             .forRoutes(
-                { path: 'v1/auth/google/me', method: RequestMethod.GET }
+                { path: 'v1/sso/google/me', method: RequestMethod.GET }
             );
     }
 };

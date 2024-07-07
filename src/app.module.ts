@@ -5,14 +5,14 @@ import { AppService } from './app.service';
 import { 
   CommonModule, 
   IdentityModule, 
-  MysqlModule, 
+  MySQLModule, 
   SsoModule 
 } from './app';
 
 
 @Module({
   imports: [
-    MysqlModule,
+    MySQLModule,
     CommonModule,
     SsoModule,
     IdentityModule

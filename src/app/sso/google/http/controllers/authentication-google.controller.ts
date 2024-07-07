@@ -14,12 +14,11 @@ import {
     Response
 } from 'express';
 import { ApiTags } from '@nestjs/swagger';
-import { 
-    AuthenticationService, 
-    GoogleAccountService 
+import {
+    AuthenticationService,
+    GoogleAccountService
 } from '../../services';
 import { GoogleAuthGuard } from '../../guard';
-import { GoogleStrategy } from '../../strategy/google.strategy';
 import { GoogleProfileMapper } from '../../Mappers';
 
 @ApiTags('GoogleIdentity')
@@ -29,21 +28,7 @@ export class AuthenticationGoogleController {
     constructor(
         private authService: AuthenticationService,
         private googleAccountService: GoogleAccountService,
-        private googleStrategy: GoogleStrategy
     ) { };
-
-    // private googleAccountService: GoogleAccountService;
-    // private authService: AuthenticationService;
-
-    // constructor(
-    //     @inject(TYPES.GoogleAccountService) 
-    //     googleAccountService: GoogleAccountService,
-    //     @inject(TYPES.AuthenticationService) 
-    //     authService: AuthenticationService,
-    // ) {
-    //     this.googleAccountService = googleAccountService;
-    //     this.authService = authService;
-    // };
 
     @Get()
     @UseGuards(GoogleAuthGuard)
@@ -99,13 +84,11 @@ export class AuthenticationGoogleController {
         @Req()
         req: Request,
         @Res()
-        res: Response,
-        @Param()
-        id: String
+        res: Response
     ) {
         try {
-            const me = await this.googleAccountService.me(id as string);
-            console.log("me: " + me);
+            const google_id = req.user;
+            const me = await this.googleAccountService.me(google_id as string);
             return res.status(200).json(me);
         } catch (error) {
             res.status(500).send('An error occurred');
