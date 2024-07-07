@@ -14,18 +14,18 @@ export class GoogleAccountService {
     ) { };
 
     /**
-     * 
+     * @description Create Account By Google
      * @param profile 
      * @returns 
      */
     async create(profile: any) {
         try {
-            let existingCustomer = await this.userRepository.findOne({ where: { Id: profile.google_id } });
+            let existingCustomer = await this.userRepository.findOne({ where: { GoogleId: profile.google_id } });
 
-            if (!existingCustomer) {
+            if (existingCustomer === null) {
                 const userEntity = new UserEntity();
 
-                userEntity.Id = profile.google_id;
+                userEntity.GoogleId = profile.google_id;
                 userEntity.Email = profile.email;
                 userEntity.Firstname = profile.firstName;
                 userEntity.Lastname = profile.lastName;
@@ -37,24 +37,7 @@ export class GoogleAccountService {
                 return newUserEntity;
             }
 
-            // if (existingCustomer) {
-            //     const enCryptToken = await this.authService.encrypt(googleAccountModel.access_token);
-            //     this.updateAccessToken(googleAccountModel.google_id, enCryptToken);
-            //     return existingCustomer;
-            // } else {
-            //     let googleAccountEntity = new GoogleAccountEntity();
-
-            //     googleAccountEntity.google_id = googleAccountModel.google_id;
-            //     googleAccountEntity.email = googleAccountModel.email;
-            //     googleAccountEntity.name = googleAccountModel.name;
-            //     googleAccountEntity.family_name = googleAccountModel.family_name;
-            //     googleAccountEntity.url_picture = googleAccountModel.url_picture;
-            //     googleAccountEntity.access_token = await this.auth.encrypt(googleAccountModel.access_token);
-
-            //     const newAccountGoogle = await GoogleAccountRepository.save(googleAccountModel);
-
-            //     return newAccountGoogle;
-            // }
+            return existingCustomer;
         } catch (error: any) {
             console.error(error);
         }
@@ -65,9 +48,9 @@ export class GoogleAccountService {
      * @param Id 
      * @returns 
      */
-    async me(Id: string) {
+    async me(google_id: string) {
         try {
-            const profile = await this.userRepository.findOne({ where: { Id } });
+            const profile = await this.userRepository.findOne({ where: { GoogleId: google_id } });
             console.log(profile);
             return profile;
         } catch (error) {

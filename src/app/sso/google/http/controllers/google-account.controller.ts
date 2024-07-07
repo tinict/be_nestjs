@@ -1,21 +1,48 @@
-import { Controller } from '@nestjs/common';
+import {
+    Controller,
+    Get,
+    Next,
+    Param,
+    Query,
+    Req,
+    Res,
+    UseGuards
+} from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
+import {
+    NextFunction,
+    Request,
+    Response
+} from 'express';
+import { GoogleAccountService } from '../../services';
 
-@ApiTags('GoogleAccount')
-@Controller('v1/google-account')
+@ApiTags('GoogleIdentity')
+@Controller('v1/sso/google/me')
 export class GoogleAccountController {
 
-    constructor() {};
+    constructor(
+        private googleAccountService: GoogleAccountService,
+    ) { };
 
-    // async me(req: Request, res: Response) {
-    //     try {
-    //         const google_id: { sub?: { user_id?: string | undefined } | undefined } = req.user!;
-    //         if (google_id.sub === undefined) return res.status(500).json({ error: 'Unauthorized' });
-    //         const me = await this.googleAccountService.me(google_id.sub?.user_id ?? '');
-    //         console.log("me: " + me);
-    //         return res.status(200).json(me);
-    //     } catch (error) {
-    //         return res.status(500).json(error);
-    //     }
-    // };
+    /**
+     * 
+     * @param req 
+     * @param res 
+     * @returns 
+     */
+    @Get('me')
+    async me(
+        @Req()
+        req: Request,
+        @Res()
+        res: Response
+    ) {
+        try {
+            const google_id = req.user;
+            const me = await this.googleAccountService.me(google_id as string);
+            return res.status(200).json(me);
+        } catch (error) {
+            res.status(500).send('An error occurred');
+        }
+    };
 };

@@ -5,6 +5,7 @@ import {
 import { ResponseHelper } from 'src/helpers';
 import * as MSG from '../../../../../constants/msg';
 import { AuthenticationService } from '../../services';
+import { JwtPayload } from 'jsonwebtoken';
 
 @Injectable()
 export class AuthMiddleware implements NestMiddleware {
@@ -20,41 +21,31 @@ export class AuthMiddleware implements NestMiddleware {
         }
 
         //Get Client token
-        const authorization = (
+        const client_token: string = (
             req?.headers?.authorization?.toString() || ''
         );
 
-        const verifyToken = await this.authService.verifyToken(authorization);
-        if (verifyToken === null) {
+        console.log('client_token', client_token);
+
+        const profile: JwtPayload | string = await this.authService.verifyToken(client_token);
+        if (!profile) {
             throw ResponseHelper.HttpException(
                 ResponseHelper.UnAuthorized(MSG.MSG_AUTH_FAILED),
             );
         }
 
-        console.log("Decode: ", verifyToken);
+        //Model
+        if (profile) {
+            if (typeof profile.sub === 'string') {
+                try {
+                    const payload = JSON.parse(profile.sub);
+                    req.user = payload?.google_id;
+                } catch (error: any) {
+                    console.error(error);
+                }
+            }
+        }
 
         next();
     };
-
-    // async isAuthenticated(req: Request, res: Response, next: NextFunction) {
-    //     try {
-    //         const authHeader = req.headers.authorization;
-    //         const client_token = authHeader || '';
-    //         console.log(client_token);
-    //         if (client_token === null) {
-    //             return res.status(401).json({ error: 'Unauthorized' });
-    //         }
-    //         const verifyToken = await this.authService.verifyToken(client_token);
-    //         if (verifyToken === null) {
-    //             return res.status(401).json({ error: 'Unauthorized' });
-    //         }
-
-    //         req.user = verifyToken;
-    //         console.log(verifyToken);
-    //         next();
-    //     } catch (error) {
-    //         console.log(error);
-    //         res.status(500).send('An error occurred');
-    //     }
-    // };
 };
