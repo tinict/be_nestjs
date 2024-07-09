@@ -17,7 +17,7 @@ import {
 import { GoogleAccountService } from '../../services';
 
 @ApiTags('GoogleIdentity')
-@Controller('v1/sso/google/me')
+@Controller('v1/sso/google')
 export class GoogleAccountController {
 
     constructor(
@@ -39,6 +39,7 @@ export class GoogleAccountController {
     ) {
         try {
             const google_id = req.user;
+            console.log('google_id: ', google_id);
             const me = await this.googleAccountService.me(google_id as string);
             return res.status(200).json(me);
         } catch (error) {

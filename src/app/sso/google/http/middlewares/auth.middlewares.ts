@@ -28,6 +28,10 @@ export class AuthMiddleware implements NestMiddleware {
         console.log('client_token', client_token);
 
         const profile: JwtPayload | string = await this.authService.verifyToken(client_token);
+
+        console.log("auth middleware Line 32: ", typeof profile.sub);
+        console.log("auth middleware Line 32: ", profile);
+
         if (!profile) {
             throw ResponseHelper.HttpException(
                 ResponseHelper.UnAuthorized(MSG.MSG_AUTH_FAILED),
@@ -36,9 +40,16 @@ export class AuthMiddleware implements NestMiddleware {
 
         //Model
         if (profile) {
-            if (typeof profile.sub === 'string') {
+            if (typeof profile.sub === 'object') {
                 try {
-                    const payload = JSON.parse(profile.sub);
+                    const payload = profile.sub || null;
+                    if (!payload) {
+                        throw ResponseHelper.HttpException(
+                            ResponseHelper.UnAuthorized(MSG.MSG_AUTH_FAILED),
+                        );
+                    }
+                    
+                    console.log('Payload Google Id: ', payload?.google_id)
                     req.user = payload?.google_id;
                 } catch (error: any) {
                     console.error(error);

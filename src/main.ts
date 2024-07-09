@@ -1,4 +1,3 @@
-import { config } from 'aws-sdk';
 import { Logger, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 
@@ -35,11 +34,9 @@ async function bootstrap() {
   app.set('trust proxy', true);
   app.enableCors({
     origin: [
-      'https://admin-gce.web.app',
-      'https://gce-community-app.web.app',
-      'http://localhost:4200',
-      'https://project-management-offic-c50c9.web.app',
+      'http://localhost:3000',
     ],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
   });
   const port = 5000;
@@ -53,14 +50,6 @@ async function bootstrap() {
 
   const document = SwaggerModule.createDocument(app, options, {});
   SwaggerModule.setup('docs', app, document);
-
-  config.update({ 
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-    region: process.env.AWS_REGION,
-  });
-
-  console.log(process.env.RDS_NAME);
 
   await app.listen(port);
   Logger.log(
