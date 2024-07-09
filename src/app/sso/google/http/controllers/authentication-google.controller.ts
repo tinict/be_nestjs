@@ -3,6 +3,7 @@ import {
     Get,
     Next,
     Param,
+    Post,
     Query,
     Req,
     Res,
@@ -37,6 +38,17 @@ export class AuthenticationGoogleController {
         req: Request,
     ) { };
 
+    @Get('sso')
+    @UseGuards(GoogleAuthGuard)
+    async googleSSO(
+        @Req()
+        req: Request,
+        @Res()
+        res: Response,
+    ) {
+        res.redirect(`http://localhost:5000/api/v1/auth/google`);
+    };
+
     @Get('callback')
     @UseGuards(GoogleAuthGuard)
     async googleAuthRedirect(
@@ -57,7 +69,7 @@ export class AuthenticationGoogleController {
             //Generate Token For Client
             const client_token = await this.authService.generateToken(profileGoogle);
             console.log(client_token);
-            res.cookie('client_token', client_token).redirect(`http://localhost:5000/api/v1/auth/google/client-token?continue=${"http://localhost:3003"}`);
+            res.cookie('client_token', client_token).redirect(`http://localhost:5000/api/v1/auth/google/client-token?continue=${"http://localhost:3000"}`);
             return;
         } catch (error: any) {
             console.error(error);
@@ -73,23 +85,6 @@ export class AuthenticationGoogleController {
     ) {
         try {
             res.redirect(`${req.query.continue}`);
-        } catch (error) {
-            res.status(500).send('An error occurred');
-        }
-    };
-
-    //Test api
-    @Get('me')
-    async me(
-        @Req()
-        req: Request,
-        @Res()
-        res: Response
-    ) {
-        try {
-            const google_id = req.user;
-            const me = await this.googleAccountService.me(google_id as string);
-            return res.status(200).json(me);
         } catch (error) {
             res.status(500).send('An error occurred');
         }
