@@ -21,39 +21,39 @@ import { UserFields } from '../fields';
 export class UserService {
   constructor(
     @InjectRepository(UserEntity)
-    private categoryRepository: Repository<UserEntity>, // private organizationService: OrganizationService,
-  ) {}
+    private categoryRepository: Repository<UserEntity>
+  ) { };
 
-  validateReference = async (queryFields, credentials: any) => {
-    return Promise.all(
-      _.map(_.keys(queryFields), (key) => {
-        switch (key) {
-          case 'parent_id':
-            return this.findByIdOrFail(queryFields[key], credentials);
+  // validateReference = async (queryFields, credentials: any) => {
+  //   return Promise.all(
+  //     _.map(_.keys(queryFields), (key) => {
+  //       switch (key) {
+  //         case 'parent_id':
+  //           return this.findByIdOrFail(queryFields[key], credentials);
 
-          case 'organization_id':
-          // return this.organizationService.findByIdOrFail(
-          //   queryFields[key],
-          //   credentials,
-          // );
+  //         case 'organization_id':
+  //         return this.organizationService.findByIdOrFail(
+  //           queryFields[key],
+  //           credentials,
+  //         );
 
-          default:
-            break;
-        }
-      }),
-    );
-  };
+  //         default:
+  //           break;
+  //       }
+  //     }),
+  //   );
+  // };
 
   create = async (body: UserCreateModel, credentials: any) => {
-    await this.validateReference(body, credentials);
+    // await this.validateReference(body, credentials);
 
     const entity = new UserEntity();
-    entity.Name = body.name;
+    // entity.Name = body.name;
     entity.Description = body.description;
     entity.DisplayOrder = body.display_order;
     entity.ParentId = body.parent_id;
     entity.CreatedBy = _.get(credentials, 'UserId');
-    entity.OrganizationId = _.get(credentials, 'OrganizationId');
+    // entity.OrganizationId = _.get(credentials, 'OrganizationId');
 
     return this.categoryRepository.save(entity);
   };
@@ -62,7 +62,7 @@ export class UserService {
     const { limit = 10, offset = 0 } = query;
 
     const where = {
-      OrganizationId: _.get(credentials, 'OrganizationId'),
+      // OrganizationId: _.get(credentials, 'OrganizationId'),
       DeleteDate: IsNull(),
     };
 
@@ -94,7 +94,7 @@ export class UserService {
         {
           where: {
             Id: id,
-            OrganizationId: _.get(credentials, 'OrganizationId'),
+            // OrganizationId: _.get(credentials, 'OrganizationId'),
             DeleteDate: IsNull(),
           },
           relations: !_.isNil(_.get(options, 'include'))
@@ -112,11 +112,17 @@ export class UserService {
   ) => {
     const category = await this.findById(id, credentials, options);
 
-    if (_.isNil(category)) {
-      throw ResponseHelper.NotFound(
-        MSG.MSG_OBJ_NOT_FOUND(UserEntity.name),
-      );
-    }
+    // const category = await this.categoryRepository.findOne({
+    //   where: {
+    //     Id: id
+    //   }
+    // });
+
+    // if (_.isNil(category)) {
+    //   throw ResponseHelper.NotFound(
+    //     MSG.MSG_OBJ_NOT_FOUND(UserEntity.name),
+    //   );
+    // }
 
     return category;
   };
@@ -126,18 +132,32 @@ export class UserService {
     body: UserUpdateModel,
     credentials: any,
   ) => {
-    await this.validateReference(body, credentials);
+    // await this.validateReference(body, credentials);
 
     const entity = await this.findByIdOrFail(id, credentials);
 
-    if (body.parent_id && entity.ParentId !== body.parent_id) {
-      await this.findByIdOrFail(body.parent_id, credentials);
-    }
+    // const entity = await this.categoryRepository.findOne({
+    //   where: {
+    //     Id: id
+    //   }
+    // });
 
-    entity.Name = body.name;
+    // if (body.parent_id && entity.ParentId !== body.parent_id) {
+    //   await this.findByIdOrFail(body.parent_id, credentials);
+    // }
+
+    // entity.Name = body.name;
     entity.Description = body.description;
     entity.DisplayOrder = body.display_order;
     entity.ParentId = body.parent_id;
+
+    entity.Firstname = body.firstname;
+    entity.Lastname = body.lastname;
+    entity.Dob = body.dob;
+    entity.Gender = body.gender;
+    entity.Phone = body.phone;
+    entity.Email = body.email;
+    entity.Bio = body.bio;
 
     await this.categoryRepository.save(entity);
 
@@ -151,7 +171,7 @@ export class UserService {
         // OrganizationId: _.get(credentials, 'OrganizationId'),
       },
     });
-  }
+  };
 
   async findByIdsOrFail(ids: string[]) {
     const categorys = await this.findByIds(ids);
@@ -163,7 +183,7 @@ export class UserService {
     }
 
     return categorys;
-  }
+  };
 
   bulk = async (models: UserCreateModel[], credentials: any) => {
     await Promise.all(
@@ -180,7 +200,7 @@ export class UserService {
           entity.CreatedBy = _.get(credentials, 'UserId');
           entity.OrganizationId = _.get(credentials, 'OrganizationId');
         }
-        entity.Name = item.name;
+        // entity.Name = item.name;
         entity.Description = item.description;
         entity.Code = item.code;
         entity.DisplayOrder = item.display_order;
@@ -194,9 +214,8 @@ export class UserService {
     const entity = await this.findByIdOrFail(id, credentials);
 
     entity.DeleteDate = moment().toISOString();
-    entity.DeletedBy = _.get(credentials, 'UserId');
+    entity.DeletedBy = id;
 
     return this.categoryRepository.save(entity);
   };
 };
-

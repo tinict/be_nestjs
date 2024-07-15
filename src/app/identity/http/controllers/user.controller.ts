@@ -41,7 +41,7 @@ import { UserService } from '../../services';
 export class UserController {
     constructor(
         private readonly UserService: UserService,
-    ) { }
+    ) { };
 
     @Post('')
     @UsePipes(new JoiValidationPipe(UserCreateSchema))
@@ -55,7 +55,7 @@ export class UserController {
         } catch (error) {
             return ResponseHelper.HttpException(error);
         }
-    }
+    };
 
     @Post('bulk')
     @UsePipes(new JoiValidationPipe(UserBulkSchema))
@@ -70,7 +70,7 @@ export class UserController {
         } catch (error) {
             return ResponseHelper.HttpException(error);
         }
-    }
+    };
 
     @Get(':id')
     async get(
@@ -88,7 +88,7 @@ export class UserController {
         } catch (error) {
             return ResponseHelper.HttpException(error);
         }
-    }
+    };
 
     @Get('')
     async all(@Query() query: UserQueryModel, @Req() req: Request) {
@@ -105,7 +105,7 @@ export class UserController {
         } catch (error) {
             ResponseHelper.HttpException(error);
         }
-    }
+    };
 
     @Put(':id')
     @UsePipes(new JoiValidationPipe(UserUpdateSchema))
@@ -121,11 +121,13 @@ export class UserController {
                 _.get(req, 'body.credentials'),
             );
 
+            console.log(id);
+
             return UserMapper.toUser(result);
         } catch (error) {
             ResponseHelper.HttpException(error);
         }
-    }
+    };
 
     @Delete(':id')
     async delete(@Param('id') id: string, @Req() req: Request) {
@@ -137,5 +139,5 @@ export class UserController {
         } catch (error) {
             return ResponseHelper.HttpException(error);
         }
-    }
+    };
 };

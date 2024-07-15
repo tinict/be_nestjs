@@ -14,7 +14,7 @@ export class UserEntity extends BaseEntity {
         unique: true,
         nullable: true
     })
-    GoogleId?: string;
+    GoogleId: string;
 
     /**
      * Username (unique and not null)

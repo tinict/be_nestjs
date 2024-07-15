@@ -69,7 +69,7 @@ export class AuthenticationGoogleController {
             //Generate Token For Client
             const client_token = await this.authService.generateToken(profileGoogle);
             console.log(client_token);
-            res.cookie('client_token', client_token).redirect(`http://localhost:5000/api/v1/auth/google/client-token?continue=${"http://localhost:3000"}`);
+            res.cookie('client_token', client_token).redirect(`http://localhost:5000/api/v1/auth/google/client-token?continue=${"http://localhost:3000/profiles"}`);
             return;
         } catch (error: any) {
             console.error(error);
