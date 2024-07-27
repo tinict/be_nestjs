@@ -14,4 +14,4 @@ export class UserQueryModel extends PaginationModel {
     example: _.keys(UserFields.allowRelationKey).join(','),
   })
   include: string;
-}
+};

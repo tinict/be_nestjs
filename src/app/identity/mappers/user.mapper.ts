@@ -19,4 +19,4 @@ export class UserMapper {
 
   static toUsers = (entities: UserEntity[]) =>
     _.map(entities, UserMapper.toUser);
-}
+};

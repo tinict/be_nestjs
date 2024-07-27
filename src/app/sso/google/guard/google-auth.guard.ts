@@ -9,7 +9,4 @@ export class GoogleAuthGuard extends AuthGuard('google') {
             accessType: 'offline',
         });
     };
-
-
-    
 };

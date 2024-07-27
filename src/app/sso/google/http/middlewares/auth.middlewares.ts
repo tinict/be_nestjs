@@ -25,13 +25,7 @@ export class AuthMiddleware implements NestMiddleware {
             req?.headers?.authorization?.toString() || ''
         );
 
-        console.log('client_token', client_token);
-
         const profile: JwtPayload | string = await this.authService.verifyToken(client_token);
-
-        console.log("auth middleware Line 32: ", typeof profile.sub);
-        console.log("auth middleware Line 32: ", profile);
-
         if (!profile) {
             throw ResponseHelper.HttpException(
                 ResponseHelper.UnAuthorized(MSG.MSG_AUTH_FAILED),

@@ -1,4 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
+
 export class UserCreateModel {
   @ApiProperty({ name: 'name', example: 'user' })
   name: string;
@@ -11,4 +12,4 @@ export class UserCreateModel {
 
   @ApiProperty({ name: 'display_order' })
   display_order: number;
-}
+};

@@ -48,7 +48,7 @@ export class UserService {
     // await this.validateReference(body, credentials);
 
     const entity = new UserEntity();
-    // entity.Name = body.name;
+    entity.Name = body.name;
     entity.Description = body.description;
     entity.DisplayOrder = body.display_order;
     entity.ParentId = body.parent_id;
@@ -110,19 +110,19 @@ export class UserService {
     credentials: any,
     options = undefined,
   ) => {
-    const category = await this.findById(id, credentials, options);
+    // const category = await this.findById(id, credentials, options);
 
-    // const category = await this.categoryRepository.findOne({
-    //   where: {
-    //     Id: id
-    //   }
-    // });
+    const category = await this.categoryRepository.findOne({
+      where: {
+        Id: id
+      }
+    });
 
-    // if (_.isNil(category)) {
-    //   throw ResponseHelper.NotFound(
-    //     MSG.MSG_OBJ_NOT_FOUND(UserEntity.name),
-    //   );
-    // }
+    if (_.isNil(category)) {
+      throw ResponseHelper.NotFound(
+        MSG.MSG_OBJ_NOT_FOUND(UserEntity.name),
+      );
+    }
 
     return category;
   };
@@ -134,19 +134,19 @@ export class UserService {
   ) => {
     // await this.validateReference(body, credentials);
 
-    const entity = await this.findByIdOrFail(id, credentials);
+    // const entity = await this.findByIdOrFail(id, credentials);
 
-    // const entity = await this.categoryRepository.findOne({
-    //   where: {
-    //     Id: id
-    //   }
-    // });
+    const entity = await this.categoryRepository.findOne({
+      where: {
+        Id: id
+      }
+    });
 
-    // if (body.parent_id && entity.ParentId !== body.parent_id) {
-    //   await this.findByIdOrFail(body.parent_id, credentials);
-    // }
+    if (body.parent_id && entity.ParentId !== body.parent_id) {
+      await this.findByIdOrFail(body.parent_id, credentials);
+    }
 
-    // entity.Name = body.name;
+    entity.Name = body.name;
     entity.Description = body.description;
     entity.DisplayOrder = body.display_order;
     entity.ParentId = body.parent_id;
@@ -200,7 +200,8 @@ export class UserService {
           entity.CreatedBy = _.get(credentials, 'UserId');
           entity.OrganizationId = _.get(credentials, 'OrganizationId');
         }
-        // entity.Name = item.name;
+        
+        entity.Name = item.name;
         entity.Description = item.description;
         entity.Code = item.code;
         entity.DisplayOrder = item.display_order;

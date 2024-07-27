@@ -20,8 +20,8 @@ export abstract class BaseEntity {
   /**
    * Name
    */
-  // @Column({ name: 'name', type: 'varchar', length: 255, nullable: true })
-  // public Name: string;
+  @Column({ name: 'name', type: 'varchar', length: 255, nullable: true })
+  public Name: string;
 
   /**
    * Description

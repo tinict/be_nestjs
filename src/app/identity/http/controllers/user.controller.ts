@@ -16,7 +16,6 @@ import {
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
 import { ResponseHelper } from '../../../../helpers';
-// import { AuthenticationMiddleware } from '../middlewares/auth.middleware';
 import { JoiValidationPipe } from '../../../../validation';
 
 import {
@@ -45,7 +44,10 @@ export class UserController {
 
     @Post('')
     @UsePipes(new JoiValidationPipe(UserCreateSchema))
-    async create(@Body() body: UserCreateModel, @Req() req: Request) {
+    async create(
+        @Body() body: UserCreateModel, 
+        @Req() req: Request
+    ) {
         try {
             const result = await this.UserService.create(
                 body,
@@ -59,7 +61,10 @@ export class UserController {
 
     @Post('bulk')
     @UsePipes(new JoiValidationPipe(UserBulkSchema))
-    async bulk(@Body() body: UserBulkModel, @Req() req: Request) {
+    async bulk(
+        @Body() body: UserBulkModel, 
+        @Req() req: Request
+    ) {
         try {
             await this.UserService.bulk(
                 body.items,
@@ -91,7 +96,10 @@ export class UserController {
     };
 
     @Get('')
-    async all(@Query() query: UserQueryModel, @Req() req: Request) {
+    async all(
+        @Query() query: UserQueryModel, 
+        @Req() req: Request
+    ) {
         try {
             const { rows, paging } = await this.UserService.all(
                 query,
@@ -130,7 +138,10 @@ export class UserController {
     };
 
     @Delete(':id')
-    async delete(@Param('id') id: string, @Req() req: Request) {
+    async delete(
+        @Param('id') id: string,
+        @Req() req: Request
+    ) {
         try {
             await this.UserService.delete(
                 id,

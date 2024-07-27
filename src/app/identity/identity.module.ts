@@ -24,4 +24,5 @@ import { UserController } from './http/controllers';
         UserService,
     ]
 })
+
 export class IdentityModule {};

@@ -57,26 +57,4 @@ export class GoogleAccountService {
             console.log(error);
         }
     };
-
-    // async getAccessToken(google_id: string) {
-    //     try {
-    //         const token = await GoogleAccountRepository.findOne({ where: { google_id } });
-    //         console.log("getAccessToken: ", token);
-    //         if (!token) return null;
-    //         return token.access_token;
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // };
-
-    // async updateAccessToken(google_id: string, access_token: string) {
-    //     try {
-    //         const googleAccountEntity = await GoogleAccountRepository.findOne({ where: { google_id } });
-    //         if (!googleAccountEntity) return null;
-    //         googleAccountEntity.access_token = access_token;
-    //         return await GoogleAccountRepository.save(googleAccountEntity);
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // };
 };

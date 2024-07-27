@@ -10,4 +10,4 @@ export class UserGetModel {
     example: _.keys(UserFields.allowRelationKey).join(','),
   })
   include: string;
-}
+};

@@ -111,4 +111,4 @@ export class UserEntity extends BaseEntity {
         nullable: true,
     })
     Bio?: string;
-}
+};

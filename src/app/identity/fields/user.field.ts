@@ -11,4 +11,4 @@ export class UserFields {
   static allowQueryField = Object.freeze({
     q: ['Name', 'Description'],
   });
-}
+};
